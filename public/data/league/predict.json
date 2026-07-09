@@ -5,7 +5,7 @@
   "members": 1758,
   "fetchedAt": "2026-07-09T12:05:00Z",
   "sortNote": "рейтинг за весь сезон",
-  "me": { "rank": 1588, "team": "Mishunchik", "user": "Mykhailo Mishchenko", "season": 65, "isMe": true },
+  "me": { "rank": 1588, "team": "PITWALL by Claude", "account": "Mishunchik", "user": "Mykhailo Mishchenko", "season": 65, "isMe": true },
   "standings": [
     { "rank": 1, "team": "Maks Podzigun", "user": "Maks Podzigun", "season": 1157, "trend": 2, "tag": "коментатор F1" },
     { "rank": 2, "team": "Team Lawyer", "user": "Vladyslav Nesmiian", "season": 1072, "trend": 2 },

@@ -89,7 +89,7 @@ export const useAnalysis = (file?: string) =>
     queryFn: () => get<any>(`/data/analyses/${file}.json`),
   })
 
-export type LeagueRow = { rank: number; team: string; user: string; season: number; trend?: number; tag?: string; isMe?: boolean }
+export type LeagueRow = { rank: number; team: string; account?: string; user: string; season: number; trend?: number; tag?: string; isMe?: boolean }
 export type PredictLeague = {
   leagueName: string; leagueType: string; members: number; fetchedAt: string; sortNote?: string
   me: LeagueRow; standings: LeagueRow[]; rivals: LeagueRow[]

@@ -12,6 +12,7 @@ function Row({ r, highlight }: { r: LeagueRow; highlight?: 'me' | 'rival' }) {
     <tr style={{ background: bg }}>
       <td className="pos">{r.rank}</td>
       <td><b>{r.team}</b>{r.team !== r.user && <span style={{ color: 'var(--dim)', fontSize: 11.5 }}> · {r.user}</span>}
+        {r.account && <span style={{ color: 'var(--faint)', fontSize: 10.5, fontFamily: 'var(--mono)' }}> (акаунт: {r.account})</span>}
         {highlight === 'me' && <span className="chip p" style={{ marginLeft: 8 }}>МИ</span>}
         {r.tag && <span className="chip y" style={{ marginLeft: 8 }}>{r.tag.toUpperCase()}</span>}
       </td>
