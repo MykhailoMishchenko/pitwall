@@ -80,6 +80,10 @@ export type PredictQuestion = {
   Config: { Driver: number; Constructor: number; ChoiceLimit: number }
   Options: PredictOption[]
 }
+export type ModelLearning = { id: number; date: string; title: string; trigger: string; text: string; applied: string }
+export const useModel = () =>
+  useQuery({ queryKey: ['model'], queryFn: () => get<{ promptVersion: string; learnings: ModelLearning[] }>('/data/model.json') })
+
 export const usePredictIndex = () =>
   useQuery({ queryKey: ['predict-index'], queryFn: () => get<{ rounds: number[] }>('/data/predict/index.json') })
 export const usePredictRound = (round?: number) =>

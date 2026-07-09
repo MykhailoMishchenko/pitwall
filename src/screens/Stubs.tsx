@@ -1,5 +1,5 @@
 // inputs {—}, does {экраны-заглушки фаз 1–2: структура по SPEC, наполнение по мере готовности движка}, returns {8 экранов}
-import { useNextRace } from '../lib/api'
+import { useModel, useNextRace } from '../lib/api'
 import { gpUa } from '../lib/teams'
 import { Lbl, Panel, Placeholder } from '../components/ui'
 
@@ -53,10 +53,26 @@ export function League() {
 }
 
 export function Model() {
+  const { data } = useModel()
   return (
     <Screen no="10" title="МОДЕЛЬ">
       <div className="grid g-2">
-        <Placeholder title="ЖУРНАЛ LEARNINGS" text="Кожна помилка → висновок → зміна підходу. Append-only, публічно." chip="З ПЕРШОГО РОЗБОРУ" />
+        <div style={{ display: 'grid', gap: 14, alignContent: 'start' }}>
+          <Panel>
+            <Lbl right={<span className="chip p">{data?.promptVersion ?? '—'}</span>}>ЖУРНАЛ LEARNINGS · APPEND-ONLY</Lbl>
+            {!data?.learnings.length && <p className="sub" style={{ fontSize: 12.5 }}>Порожньо — перший запис зʼявиться після першого розбору чи фідбеку.</p>}
+            {data?.learnings.map((l) => (
+              <div key={l.id} style={{ borderLeft: '2px solid var(--purple)', padding: '2px 0 2px 12px', marginBottom: 14 }}>
+                <div style={{ display: 'flex', gap: 10, alignItems: 'baseline' }}>
+                  <span className="num" style={{ fontSize: 11, color: 'var(--faint)' }}>#{l.id} · {l.date}</span>
+                  <b style={{ fontSize: 13.5 }}>{l.title}</b>
+                </div>
+                <p className="sub" style={{ fontSize: 12.5, marginTop: 4 }}>{l.text}</p>
+                <p style={{ fontSize: 12, color: 'var(--green)', marginTop: 6 }}>→ {l.applied}</p>
+              </div>
+            ))}
+          </Panel>
+        </div>
         <Panel>
           <Lbl>ЧЕСНІСТЬ</Lbl>
           <p className="sub" style={{ fontSize: 12.5 }}>

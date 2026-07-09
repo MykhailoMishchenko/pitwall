@@ -1,0 +1,5 @@
+{
+  "buildCommand": "pnpm ingest && pnpm build",
+  "outputDirectory": "dist",
+  "rewrites": [{ "source": "/((?!data/).*)", "destination": "/index.html" }]
+}
