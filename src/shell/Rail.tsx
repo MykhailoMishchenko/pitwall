@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 const GROUPS: { title: string; items: [string, string, string][] }[] = [
   { title: 'ВІКЕНД', items: [['/', 'Дашборд', '01'], ['/weekend', 'Гоночний вікенд', '02'], ['/live', 'Live / Replay', '03'], ['/strategy', 'Стратегія', '04']] },
   { title: 'ІГРИ', items: [['/fantasy', 'Фентезі', '05'], ['/predict', 'Predict', '06'], ['/league', 'Ліга', '07']] },
-  { title: 'СЕЗОН', items: [['/championship', 'Чемпіонат', '08'], ['/profiles', 'Профілі', '09']] },
+  { title: 'СЕЗОН', items: [['/championship', 'Чемпіонат', '08'], ['/profiles', 'Профілі', '09'], ['/paddock', 'Паддок', '12']] },
   { title: 'РУШІЙ', items: [['/model', 'Модель', '10'], ['/favorites', 'Фаворити', '11']] },
 ]
 
