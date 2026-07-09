@@ -2,9 +2,8 @@
 import { useState } from 'react'
 import { usePicks, type NextRace } from '../lib/api'
 import { teamColor } from '../lib/teams'
+import { tryUnlock, useUnlocked } from '../lib/unlock'
 import { CountdownInline, Lbl, Panel } from './ui'
-
-const PASSPHRASE = 'fernando alonso champion'
 
 function Lineup({ round }: { round: number }) {
   const { data } = usePicks(round)
@@ -48,7 +47,8 @@ function Lineup({ round }: { round: number }) {
 
 export function PicksView({ round, next, locked }: { round: number; next?: NextRace; locked: boolean }) {
   const [input, setInput] = useState('')
-  const [unlocked, setUnlocked] = useState(false)
+  const [error, setError] = useState(false)
+  const unlocked = useUnlocked()
   const reveal = locked || unlocked
 
   if (reveal) {
@@ -62,8 +62,7 @@ export function PicksView({ round, next, locked }: { round: number; next?: NextR
     )
   }
 
-  const tryUnlock = () => { if (input.trim().toLowerCase() === PASSPHRASE) setUnlocked(true) }
-  const wrong = input.length > 0 && input.trim().toLowerCase() !== PASSPHRASE
+  const submit = () => { setError(!tryUnlock(input)) }
 
   return (
     <Panel>
@@ -76,16 +75,16 @@ export function PicksView({ round, next, locked }: { round: number; next?: NextR
       <div style={{ display: 'flex', gap: 8, marginTop: 16, maxWidth: 420 }}>
         <input
           type="password" value={input} placeholder="пароль для перегляду"
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => e.key === 'Enter' && tryUnlock()}
-          style={{ flex: 1, background: 'var(--panel2)', border: `1px solid ${wrong ? 'var(--red)' : 'var(--line)'}`, borderRadius: 3, color: 'var(--text)', fontFamily: 'var(--mono)', fontSize: 13, padding: '8px 12px', outline: 'none' }}
+          onChange={(e) => { setInput(e.target.value); setError(false) }}
+          onKeyDown={(e) => e.key === 'Enter' && submit()}
+          style={{ flex: 1, background: 'var(--panel2)', border: `1px solid ${error ? 'var(--red)' : 'var(--line)'}`, borderRadius: 3, color: 'var(--text)', fontFamily: 'var(--mono)', fontSize: 13, padding: '8px 12px', outline: 'none' }}
         />
-        <button onClick={tryUnlock}
+        <button onClick={submit}
           style={{ background: 'var(--purple)', border: 0, borderRadius: 3, color: '#0A0C0F', fontFamily: 'var(--disp)', fontSize: 14, letterSpacing: '.06em', textTransform: 'uppercase', padding: '0 16px', cursor: 'pointer' }}>
           Відкрити
         </button>
       </div>
-      {wrong && <p className="sub" style={{ fontSize: 11.5, color: 'var(--red)', marginTop: 6 }}>Невірний пароль.</p>}
+      {error && <p className="sub" style={{ fontSize: 11.5, color: 'var(--red)', marginTop: 6 }}>Невірний пароль.</p>}
     </Panel>
   )
 }
