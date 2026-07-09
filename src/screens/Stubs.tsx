@@ -41,17 +41,6 @@ export function Strategy() {
   )
 }
 
-export function Predict() {
-  return (
-    <Screen no="06" title="PREDICT">
-      <div className="grid g-2">
-        <Placeholder title="ПИТАННЯ ВІКЕНДУ" text="Топ-5 решітки, топ-10 фінішу, швидке коло: моя ймовірність vs імплайд з очок гри → EV кожної відповіді. Питання й коефіцієнти — з приватного API після Phase 0." chip="ЧЕКАЄ PHASE 0" />
-        <Placeholder title="КАЛІБРУВАННЯ" text="Заявлена ймовірність vs фактична частота по турах — головна метрика чесності моделі." chip="З ПЕРШОГО ВІКЕНДУ" />
-      </div>
-    </Screen>
-  )
-}
-
 export function League() {
   return (
     <Screen no="07" title="ЛІГА">
@@ -59,14 +48,6 @@ export function League() {
         <Placeholder title="ТАБЛИЦІ · FANTASY + PREDICT" text="PITWALL by Claude проти живих суперників. Дані ліги — з приватного API після Phase 0." chip="ЧЕКАЄ PHASE 0" />
         <Placeholder title="ПІКИ СУПЕРНИКІВ · ПІСЛЯ ЛОКА" text="Differential-піки, збіг із моделлю, позначки «людина обіграла модель» → прямо в learnings." chip="ПІСЛЯ ЛОКА" />
       </div>
-    </Screen>
-  )
-}
-
-export function Profiles() {
-  return (
-    <Screen no="09" title="ПРОФІЛІ">
-      <Placeholder title="ПІЛОТИ · КОМАНДИ" text="22 пілоти · 11 команд: форма, битви напарників, історія цін, оцінки моделі. Будь-яке імʼя на платформі веде сюди." chip="ФАЗА 2" />
     </Screen>
   )
 }

@@ -1,4 +1,4 @@
-// inputs {/api/*}, does {react-query хуки поверх read-only API}, returns {типизированные данные витрины}
+// inputs {static /data/*.json snapshots}, does {react-query хуки поверх статики + клиентский расчёт следующего этапа}, returns {типизированные данные витрины}
 import { useQuery } from '@tanstack/react-query'
 
 async function get<T>(path: string): Promise<T> {
@@ -7,12 +7,40 @@ async function get<T>(path: string): Promise<T> {
   return res.json()
 }
 
+export type Race = {
+  round: string; raceName: string; date: string; time: string
+  Circuit: { circuitId: string; circuitName: string; Location: { country: string; locality: string } }
+  Qualifying?: { date: string; time: string }
+  SprintQualifying?: { date: string; time: string }
+  Sprint?: unknown
+}
+export const useCalendar = () =>
+  useQuery({ queryKey: ['calendar'], queryFn: () => get<{ races: Race[] }>('/data/jolpica/calendar.json') })
+
 export type NextRace = {
   round: number; raceName: string; circuit?: string; country?: string
   isSprint: boolean; lockUtc: string; raceUtc: string; total: number
 }
-export const useNextRace = () =>
-  useQuery({ queryKey: ['next-race'], queryFn: () => get<NextRace>('/api/next-race'), refetchInterval: 60_000 })
+// клиентский расчёт: следующий этап + момент лока пиков (спринт → спринт-квала, иначе квала)
+export function computeNextRace(races: Race[]): NextRace | null {
+  const now = Date.now()
+  for (const r of races) {
+    const raceUtc = `${r.date}T${r.time}`
+    if (new Date(raceUtc).getTime() + 3 * 3600e3 <= now) continue
+    const q = r.SprintQualifying ?? r.Qualifying
+    const lockUtc = q ? `${q.date}T${q.time}` : raceUtc
+    return {
+      round: Number(r.round), raceName: r.raceName,
+      circuit: r.Circuit?.circuitName, country: r.Circuit?.Location?.country,
+      isSprint: Boolean(r.Sprint), lockUtc, raceUtc, total: races.length,
+    }
+  }
+  return null
+}
+export const useNextRace = () => {
+  const cal = useCalendar()
+  return { ...cal, data: cal.data ? computeNextRace(cal.data.races) : undefined }
+}
 
 export type DriverStanding = {
   position: string; points: string; wins: string
@@ -22,7 +50,7 @@ export type DriverStanding = {
 export const useDriverStandings = () =>
   useQuery({
     queryKey: ['driver-standings'],
-    queryFn: () => get<{ round: string; DriverStandings: DriverStanding[] }>('/api/standings/drivers'),
+    queryFn: () => get<{ round: string; DriverStandings: DriverStanding[] }>('/data/jolpica/driver-standings.json'),
   })
 
 export type ConstructorStanding = {
@@ -32,23 +60,30 @@ export type ConstructorStanding = {
 export const useConstructorStandings = () =>
   useQuery({
     queryKey: ['constructor-standings'],
-    queryFn: () => get<{ round: string; ConstructorStandings: ConstructorStanding[] }>('/api/standings/constructors'),
+    queryFn: () => get<{ round: string; ConstructorStandings: ConstructorStanding[] }>('/data/jolpica/constructor-standings.json'),
   })
-
-export type Race = {
-  round: string; raceName: string; date: string; time: string
-  Circuit: { circuitId: string; circuitName: string; Location: { country: string; locality: string } }
-  Sprint?: unknown
-}
-export const useCalendar = () =>
-  useQuery({ queryKey: ['calendar'], queryFn: () => get<{ races: Race[] }>('/api/calendar') })
 
 export type FantasyPlayer = {
   PlayerId: string; DisplayName: string; FUllName: string; TeamName: string
-  PositionName: 'DRIVER' | 'CONSTRUCTOR'; DriverTLA?: string
+  PositionName: 'DRIVER' | 'CONSTRUCTOR'; DriverTLA?: string; DriverReference?: string
+  LastName?: string
   Value: number; OldPlayerValue: number
   OverallPpints: string; GamedayPoints: string
   SelectedPercentage: string; CaptainSelectedPercentage: string
 }
 export const useFantasy = () =>
-  useQuery({ queryKey: ['fantasy'], queryFn: () => get<{ fetchedAt: string; players: FantasyPlayer[] }>('/api/fantasy') })
+  useQuery({ queryKey: ['fantasy'], queryFn: () => get<{ fetchedAt: string; players: FantasyPlayer[] }>('/data/fantasy/players.json') })
+
+export type PredictOption = { Id: number; Value: string; Points: string; Chance: string; Position: string; Type: number }
+export type PredictQuestion = {
+  Id: number; No: number; Text: string; SubText: string; Status: number
+  Config: { Driver: number; Constructor: number; ChoiceLimit: number }
+  Options: PredictOption[]
+}
+export const usePredictIndex = () =>
+  useQuery({ queryKey: ['predict-index'], queryFn: () => get<{ rounds: number[] }>('/data/predict/index.json') })
+export const usePredictRound = (round?: number) =>
+  useQuery({
+    queryKey: ['predict-round', round], enabled: round != null,
+    queryFn: () => get<{ round: number; fetchedAt: string; questions: PredictQuestion[] }>(`/data/predict/round-${round}.json`),
+  })

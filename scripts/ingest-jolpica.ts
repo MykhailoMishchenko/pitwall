@@ -2,7 +2,7 @@
 import { mkdirSync, writeFileSync } from 'node:fs'
 
 const BASE = 'https://api.jolpi.ca/ergast/f1/2026'
-const OUT = 'data/jolpica'
+const OUT = 'public/data/jolpica'
 
 async function pull(path: string): Promise<any> {
   const res = await fetch(`${BASE}/${path}`)

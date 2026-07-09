@@ -2,7 +2,7 @@
 import { mkdirSync, writeFileSync } from 'node:fs'
 
 const FEED = 'https://fantasy.formula1.com/feeds/drivers/1_en.json'
-const OUT = 'data/fantasy'
+const OUT = 'public/data/fantasy'
 
 async function main() {
   mkdirSync(OUT, { recursive: true })

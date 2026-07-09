@@ -1,0 +1,1011 @@
+{
+ "round": 25,
+ "fetchedAt": "2026-07-09T10:15:30.203Z",
+ "questions": [
+  {
+   "Id": 99,
+   "No": 1,
+   "Text": "Predict the top 3 in the 2026 Drivers' Championship.",
+   "SubText": "Get the points when your picks finish in the top 3. Predict the exact position? You score double.",
+   "OptionTemplateId": 1,
+   "Status": 3,
+   "Config": {
+    "IsMinValueExtended": 0,
+    "IsMaxValueExtended": 0,
+    "Driver": 3,
+    "Constructor": 0,
+    "ChoiceLimit": 3
+   },
+   "Options": [
+    {
+     "Id": 124,
+     "Value": "George Russell",
+     "Points": "5",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "83"
+    },
+    {
+     "Id": 131,
+     "Value": "Max Verstappen",
+     "Points": "6",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "82"
+    },
+    {
+     "Id": 117,
+     "Value": "Lando Norris",
+     "Points": "10",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "77"
+    },
+    {
+     "Id": 1982,
+     "Value": "Oscar Piastri",
+     "Points": "15",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "70"
+    },
+    {
+     "Id": 11161,
+     "Value": "Kimi Antonelli",
+     "Points": "18",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "66"
+    },
+    {
+     "Id": 115,
+     "Value": "Charles Leclerc",
+     "Points": "18",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "66"
+    },
+    {
+     "Id": 110,
+     "Value": "Lewis Hamilton",
+     "Points": "21",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "62"
+    },
+    {
+     "Id": 12,
+     "Value": "Fernando Alonso",
+     "Points": "25",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "57"
+    },
+    {
+     "Id": 11032,
+     "Value": "Isack Hadjar",
+     "Points": "35",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "43"
+    },
+    {
+     "Id": 18,
+     "Value": "Pierre Gasly",
+     "Points": "40",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "37"
+    },
+    {
+     "Id": 125,
+     "Value": "Carlos Sainz",
+     "Points": "45",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "30"
+    },
+    {
+     "Id": 11,
+     "Value": "Alexander Albon",
+     "Points": "45",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "30"
+    },
+    {
+     "Id": 129,
+     "Value": "Lance Stroll",
+     "Points": "50",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "23"
+    },
+    {
+     "Id": 11031,
+     "Value": "Oliver Bearman",
+     "Points": "52",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "21"
+    },
+    {
+     "Id": 111,
+     "Value": "Nico Hulkenberg",
+     "Points": "52",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "21"
+    },
+    {
+     "Id": 118,
+     "Value": "Esteban Ocon",
+     "Points": "55",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "17"
+    },
+    {
+     "Id": 114,
+     "Value": "Liam Lawson",
+     "Points": "55",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "17"
+    },
+    {
+     "Id": 11149,
+     "Value": "Arvid Lindblad",
+     "Points": "55",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "17"
+    },
+    {
+     "Id": 11059,
+     "Value": "Franco Colapinto",
+     "Points": "55",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "17"
+    },
+    {
+     "Id": 11051,
+     "Value": "Gabriel Bortoleto",
+     "Points": "60",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "10"
+    },
+    {
+     "Id": 121,
+     "Value": "Sergio Perez",
+     "Points": "60",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "10"
+    },
+    {
+     "Id": 13,
+     "Value": "Valtteri Bottas",
+     "Points": "60",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "10"
+    }
+   ],
+   "Answer": []
+  },
+  {
+   "Id": 100,
+   "No": 2,
+   "Text": "Which team will take the 2026 Constructors' Championship title?",
+   "SubText": "2026 regulations: Who nails the new era?",
+   "OptionTemplateId": 2,
+   "Status": 3,
+   "Config": {
+    "IsMinValueExtended": 0,
+    "IsMaxValueExtended": 0,
+    "Driver": 0,
+    "Constructor": 1,
+    "ChoiceLimit": 1
+   },
+   "Options": [
+    {
+     "Id": 28,
+     "Value": "Mercedes",
+     "Points": "10",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "77"
+    },
+    {
+     "Id": 27,
+     "Value": "McLaren",
+     "Points": "12",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "74"
+    },
+    {
+     "Id": 25,
+     "Value": "Ferrari",
+     "Points": "20",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "63"
+    },
+    {
+     "Id": 29,
+     "Value": "Red Bull Racing",
+     "Points": "22",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "61"
+    },
+    {
+     "Id": 24,
+     "Value": "Aston Martin",
+     "Points": "30",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "50"
+    },
+    {
+     "Id": 23,
+     "Value": "Alpine",
+     "Points": "35",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "43"
+    },
+    {
+     "Id": 210,
+     "Value": "Williams",
+     "Points": "40",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "37"
+    },
+    {
+     "Id": 2640,
+     "Value": "Audi",
+     "Points": "45",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "30"
+    },
+    {
+     "Id": 26,
+     "Value": "Haas F1 Team",
+     "Points": "45",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "30"
+    },
+    {
+     "Id": 2636,
+     "Value": "Racing Bulls",
+     "Points": "50",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "23"
+    },
+    {
+     "Id": 2641,
+     "Value": "Cadillac",
+     "Points": "60",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "10"
+    }
+   ],
+   "Answer": []
+  },
+  {
+   "Id": 101,
+   "No": 3,
+   "Text": "Which driver will score the most Grand Prix Pole Positions this season?",
+   "SubText": "Qualifying was closer than ever in 2025. But who leads the pack in 2026?",
+   "OptionTemplateId": 2,
+   "Status": 3,
+   "Config": {
+    "IsMinValueExtended": 0,
+    "IsMaxValueExtended": 0,
+    "Driver": 1,
+    "Constructor": 0,
+    "ChoiceLimit": 1
+   },
+   "Options": [
+    {
+     "Id": 124,
+     "Value": "George Russell",
+     "Points": "10",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "77"
+    },
+    {
+     "Id": 131,
+     "Value": "Max Verstappen",
+     "Points": "12",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "74"
+    },
+    {
+     "Id": 117,
+     "Value": "Lando Norris",
+     "Points": "18",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "66"
+    },
+    {
+     "Id": 1982,
+     "Value": "Oscar Piastri",
+     "Points": "20",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "63"
+    },
+    {
+     "Id": 11161,
+     "Value": "Kimi Antonelli",
+     "Points": "20",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "63"
+    },
+    {
+     "Id": 115,
+     "Value": "Charles Leclerc",
+     "Points": "22",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "61"
+    },
+    {
+     "Id": 110,
+     "Value": "Lewis Hamilton",
+     "Points": "25",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "57"
+    },
+    {
+     "Id": 12,
+     "Value": "Fernando Alonso",
+     "Points": "30",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "50"
+    },
+    {
+     "Id": 11032,
+     "Value": "Isack Hadjar",
+     "Points": "42",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "34"
+    },
+    {
+     "Id": 18,
+     "Value": "Pierre Gasly",
+     "Points": "45",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "30"
+    },
+    {
+     "Id": 125,
+     "Value": "Carlos Sainz",
+     "Points": "45",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "30"
+    },
+    {
+     "Id": 11,
+     "Value": "Alexander Albon",
+     "Points": "50",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "23"
+    },
+    {
+     "Id": 129,
+     "Value": "Lance Stroll",
+     "Points": "50",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "23"
+    },
+    {
+     "Id": 11031,
+     "Value": "Oliver Bearman",
+     "Points": "55",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "17"
+    },
+    {
+     "Id": 111,
+     "Value": "Nico Hulkenberg",
+     "Points": "55",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "17"
+    },
+    {
+     "Id": 118,
+     "Value": "Esteban Ocon",
+     "Points": "55",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "17"
+    },
+    {
+     "Id": 114,
+     "Value": "Liam Lawson",
+     "Points": "56",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "15"
+    },
+    {
+     "Id": 11149,
+     "Value": "Arvid Lindblad",
+     "Points": "56",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "15"
+    },
+    {
+     "Id": 11059,
+     "Value": "Franco Colapinto",
+     "Points": "58",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "13"
+    },
+    {
+     "Id": 11051,
+     "Value": "Gabriel Bortoleto",
+     "Points": "58",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "13"
+    },
+    {
+     "Id": 121,
+     "Value": "Sergio Perez",
+     "Points": "60",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "10"
+    },
+    {
+     "Id": 13,
+     "Value": "Valtteri Bottas",
+     "Points": "60",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "10"
+    }
+   ],
+   "Answer": []
+  },
+  {
+   "Id": 102,
+   "No": 4,
+   "Text": "How many first-time Grand Prix winners will we see in 2026?",
+   "SubText": "10 of the 22 drivers starting this season have yet to stand on the top step of the podium.",
+   "OptionTemplateId": 6,
+   "Status": 3,
+   "Config": {
+    "MinValue": 0,
+    "MaxValue": 3,
+    "StepValue": 1,
+    "IsMinValueExtended": 0,
+    "IsMaxValueExtended": 1,
+    "ChoiceLimit": 1
+   },
+   "Options": [
+    {
+     "Id": 1,
+     "Value": "0",
+     "Points": "10",
+     "Type": 3,
+     "Position": "0",
+     "Chance": "0"
+    },
+    {
+     "Id": 2,
+     "Value": "1",
+     "Points": "15",
+     "Type": 3,
+     "Position": "0",
+     "Chance": "0"
+    },
+    {
+     "Id": 3,
+     "Value": "2",
+     "Points": "20",
+     "Type": 3,
+     "Position": "0",
+     "Chance": "0"
+    },
+    {
+     "Id": 4,
+     "Value": "3",
+     "Points": "30",
+     "Type": 3,
+     "Position": "0",
+     "Chance": "0"
+    },
+    {
+     "Id": 5,
+     "Value": ">3",
+     "Points": "50",
+     "Type": 3,
+     "Position": "0",
+     "Chance": "0"
+    }
+   ],
+   "Answer": []
+  },
+  {
+   "Id": 103,
+   "No": 5,
+   "Text": "Who wins the Grand Prix qualifying head-to-head at Cadillac this season?",
+   "SubText": "F1 welcomes a new team — and welcomes back two of our favourite drivers.",
+   "OptionTemplateId": 7,
+   "Status": 3,
+   "Config": {
+    "IsMinValueExtended": 0,
+    "IsMaxValueExtended": 0,
+    "ChoiceLimit": 1
+   },
+   "Options": [
+    {
+     "Id": 13,
+     "Value": "Valtteri Bottas",
+     "Points": "10",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "0"
+    },
+    {
+     "Id": 121,
+     "Value": "Sergio Perez",
+     "Points": "15",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "0"
+    }
+   ],
+   "Answer": []
+  },
+  {
+   "Id": 104,
+   "No": 6,
+   "Text": "Which team will set the fastest pitstop time of the season?",
+   "SubText": "Can McLaren set the pace again this year?",
+   "OptionTemplateId": 2,
+   "Status": 3,
+   "Config": {
+    "IsMinValueExtended": 0,
+    "IsMaxValueExtended": 0,
+    "Driver": 0,
+    "Constructor": 1,
+    "ChoiceLimit": 1
+   },
+   "Options": [
+    {
+     "Id": 27,
+     "Value": "McLaren",
+     "Points": "10",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "74"
+    },
+    {
+     "Id": 29,
+     "Value": "Red Bull Racing",
+     "Points": "12",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "71"
+    },
+    {
+     "Id": 25,
+     "Value": "Ferrari",
+     "Points": "15",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "66"
+    },
+    {
+     "Id": 2636,
+     "Value": "Racing Bulls",
+     "Points": "20",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "58"
+    },
+    {
+     "Id": 2640,
+     "Value": "Audi",
+     "Points": "25",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "50"
+    },
+    {
+     "Id": 28,
+     "Value": "Mercedes",
+     "Points": "28",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "45"
+    },
+    {
+     "Id": 210,
+     "Value": "Williams",
+     "Points": "30",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "42"
+    },
+    {
+     "Id": 23,
+     "Value": "Alpine",
+     "Points": "35",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "34"
+    },
+    {
+     "Id": 26,
+     "Value": "Haas F1 Team",
+     "Points": "40",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "26"
+    },
+    {
+     "Id": 24,
+     "Value": "Aston Martin",
+     "Points": "45",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "18"
+    },
+    {
+     "Id": 2641,
+     "Value": "Cadillac",
+     "Points": "50",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "10"
+    }
+   ],
+   "Answer": []
+  },
+  {
+   "Id": 105,
+   "No": 7,
+   "Text": "Who will win the DHL Fastest Lap Award this year?",
+   "SubText": "This award is given to the driver who records the most fastest laps during the season.",
+   "OptionTemplateId": 2,
+   "Status": 3,
+   "Config": {
+    "IsMinValueExtended": 0,
+    "IsMaxValueExtended": 0,
+    "Driver": 1,
+    "Constructor": 0,
+    "ChoiceLimit": 1
+   },
+   "Options": [
+    {
+     "Id": 124,
+     "Value": "George Russell",
+     "Points": "10",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "77"
+    },
+    {
+     "Id": 131,
+     "Value": "Max Verstappen",
+     "Points": "12",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "74"
+    },
+    {
+     "Id": 117,
+     "Value": "Lando Norris",
+     "Points": "18",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "66"
+    },
+    {
+     "Id": 1982,
+     "Value": "Oscar Piastri",
+     "Points": "20",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "63"
+    },
+    {
+     "Id": 11161,
+     "Value": "Kimi Antonelli",
+     "Points": "20",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "63"
+    },
+    {
+     "Id": 115,
+     "Value": "Charles Leclerc",
+     "Points": "22",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "61"
+    },
+    {
+     "Id": 110,
+     "Value": "Lewis Hamilton",
+     "Points": "25",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "57"
+    },
+    {
+     "Id": 12,
+     "Value": "Fernando Alonso",
+     "Points": "30",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "50"
+    },
+    {
+     "Id": 11032,
+     "Value": "Isack Hadjar",
+     "Points": "42",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "34"
+    },
+    {
+     "Id": 18,
+     "Value": "Pierre Gasly",
+     "Points": "45",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "30"
+    },
+    {
+     "Id": 125,
+     "Value": "Carlos Sainz",
+     "Points": "45",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "30"
+    },
+    {
+     "Id": 11,
+     "Value": "Alexander Albon",
+     "Points": "50",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "23"
+    },
+    {
+     "Id": 129,
+     "Value": "Lance Stroll",
+     "Points": "50",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "23"
+    },
+    {
+     "Id": 11031,
+     "Value": "Oliver Bearman",
+     "Points": "55",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "17"
+    },
+    {
+     "Id": 111,
+     "Value": "Nico Hulkenberg",
+     "Points": "55",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "17"
+    },
+    {
+     "Id": 118,
+     "Value": "Esteban Ocon",
+     "Points": "55",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "17"
+    },
+    {
+     "Id": 114,
+     "Value": "Liam Lawson",
+     "Points": "56",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "15"
+    },
+    {
+     "Id": 11149,
+     "Value": "Arvid Lindblad",
+     "Points": "56",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "15"
+    },
+    {
+     "Id": 11059,
+     "Value": "Franco Colapinto",
+     "Points": "58",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "13"
+    },
+    {
+     "Id": 11051,
+     "Value": "Gabriel Bortoleto",
+     "Points": "58",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "13"
+    },
+    {
+     "Id": 121,
+     "Value": "Sergio Perez",
+     "Points": "60",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "10"
+    },
+    {
+     "Id": 13,
+     "Value": "Valtteri Bottas",
+     "Points": "60",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "10"
+    }
+   ],
+   "Answer": []
+  },
+  {
+   "Id": 106,
+   "No": 8,
+   "Text": "Which team comes out on top in the Constructors’ battle?",
+   "SubText": "2026 is a reset — but how does the midfield shake out?",
+   "OptionTemplateId": 7,
+   "Status": 3,
+   "Config": {
+    "IsMinValueExtended": 0,
+    "IsMaxValueExtended": 0,
+    "ChoiceLimit": 1
+   },
+   "Options": [
+    {
+     "Id": 23,
+     "Value": "Alpine",
+     "Points": "10",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "0"
+    },
+    {
+     "Id": 2640,
+     "Value": "Audi",
+     "Points": "15",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "0"
+    }
+   ],
+   "Answer": []
+  },
+  {
+   "Id": 107,
+   "No": 9,
+   "Text": "When will the Drivers' Championship be decided?",
+   "SubText": "Runaway winner, or an end‑of‑season showdown?",
+   "OptionTemplateId": 4,
+   "Status": 3,
+   "Config": {
+    "IsMinValueExtended": 0,
+    "IsMaxValueExtended": 0,
+    "ChoiceLimit": 1
+   },
+   "Options": [
+    {
+     "Id": 1,
+     "Value": "Abu Dhabi",
+     "Points": "18",
+     "Type": 3,
+     "Position": "0",
+     "Chance": "0"
+    },
+    {
+     "Id": 2,
+     "Value": "Qatar",
+     "Points": "15",
+     "Type": 3,
+     "Position": "0",
+     "Chance": "0"
+    },
+    {
+     "Id": 3,
+     "Value": "Las Vegas",
+     "Points": "10",
+     "Type": 3,
+     "Position": "0",
+     "Chance": "0"
+    },
+    {
+     "Id": 4,
+     "Value": "Sao Paulo",
+     "Points": "15",
+     "Type": 3,
+     "Position": "0",
+     "Chance": "0"
+    },
+    {
+     "Id": 5,
+     "Value": "Earlier",
+     "Points": "20",
+     "Type": 3,
+     "Position": "0",
+     "Chance": "0"
+    }
+   ],
+   "Answer": []
+  },
+  {
+   "Id": 108,
+   "No": 10,
+   "Text": "Will 2026 see a new driver crowned Champion?",
+   "SubText": "Can a new name join Verstappen, Hamilton, Alonso and 2025 Champion Lando Norris  among Formula 1’s elite?",
+   "OptionTemplateId": 8,
+   "Status": 3,
+   "Config": {
+    "IsMinValueExtended": 0,
+    "IsMaxValueExtended": 0,
+    "ChoiceLimit": 1
+   },
+   "Options": [
+    {
+     "Id": 1,
+     "Value": "Yes",
+     "Points": "15",
+     "Type": 3,
+     "Position": "0",
+     "Chance": "0"
+    },
+    {
+     "Id": 2,
+     "Value": "No",
+     "Points": "10",
+     "Type": 3,
+     "Position": "0",
+     "Chance": "0"
+    }
+   ],
+   "Answer": []
+  }
+ ]
+}

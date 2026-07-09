@@ -6,7 +6,9 @@ import { ClawdDefs, useClawdRoamer } from './components/Clawd'
 import Dashboard from './screens/Dashboard'
 import Championship from './screens/Championship'
 import Fantasy from './screens/Fantasy'
-import { Favorites, League, Live, Model, Paddock, Predict, Profiles, Strategy, Weekend } from './screens/Stubs'
+import Predict from './screens/Predict'
+import Profiles from './screens/Profiles'
+import { Favorites, League, Live, Model, Paddock, Strategy, Weekend } from './screens/Stubs'
 
 export default function App() {
   useClawdRoamer()
