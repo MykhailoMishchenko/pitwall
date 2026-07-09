@@ -76,6 +76,23 @@ Antonelli. Это ЧЕРНОВИК v0 (доступен до лока квалы
 - Для Спа появится `questions_10_en.json` при открытии раунда — рутина превью
   должна поллить факт открытия.
 
+**Лиги:**
+- `GET /services/user/league/{guid}/1/leaguelanding` — список лиг юзера (id,
+  name, type, member_count, rank, points). Приватная: **«ЕФОДИН» id=776103,
+  code=C34CYRUHL03, 1756 участников**.
+- Таблица приватной лиги: `GET /services/user/leaderboard/{guid}/1/{leagueId}/
+  9/1/1/500/pvtleagueleaderboard` → Data.Value.memRank[] (rno=ранг за тур,
+  teamName, userName, ovPoints=очки тура, overallPoints=сезон, trend) +
+  userRank[0] (моя строка). Имена URL-encoded → decodeURIComponent.
+- **Ключевой соперник: Maks Podzigun (комментатор F1) rank 66, 1157 очков
+  сезона** — наш ориентир. Мы: «Mishunchik» rank ~1572, 65 очков (дебют).
+
+**Fantasy лиги:** `GET /services/user/league/{fantasyGuid}/leaguelandingv1` →
+Data.Value.user_leagues[] (league_name, type, member_count, teams[].cur_rank).
+Аккаунт только в СИСТЕМНЫХ лигах (Global/Audi/Ukraine/Leclerc) — приватной
+фэнтези-лиги с друзьями пока НЕТ (Team 2 без очков). Дружеское соревнование
+сейчас = Predict.
+
 **Запись:** сабмит ответов — вероятно `POST` на тот же
 `/{round}/prediction`; тело снять при первом реальном пике (TODO до Спа).
 

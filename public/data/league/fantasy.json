@@ -1,0 +1,12 @@
+{
+  "game": "fantasy",
+  "fetchedAt": "2026-07-09T11:53:00Z",
+  "privateLeague": null,
+  "note": "Приватної фентезі-ліги з друзями поки немає — акаунт лише в системних лігах. Команда «PITWALL by Claude» (Team 2) ще без очок. Дружнє змагання наразі — у Predict.",
+  "systemLeagues": [
+    { "name": "Global League", "type": "Global", "members": 2113400, "rank": 1735889 },
+    { "name": "Audi", "type": "Team", "members": 50931, "rank": 40862 },
+    { "name": "Ukraine", "type": "Country", "members": 19443, "rank": 16208 },
+    { "name": "Charles Leclerc", "type": "Driver", "members": 331015, "rank": 285097 }
+  ]
+}

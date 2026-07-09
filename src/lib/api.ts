@@ -89,6 +89,21 @@ export const useAnalysis = (file?: string) =>
     queryFn: () => get<any>(`/data/analyses/${file}.json`),
   })
 
+export type LeagueRow = { rank: number; team: string; user: string; season: number; trend?: number; tag?: string; isMe?: boolean }
+export type PredictLeague = {
+  leagueName: string; leagueType: string; members: number; fetchedAt: string; sortNote?: string
+  me: LeagueRow; standings: LeagueRow[]; rivals: LeagueRow[]
+}
+export const usePredictLeague = () =>
+  useQuery({ queryKey: ['league-predict'], queryFn: () => get<PredictLeague>('/data/league/predict.json') })
+
+export type FantasyLeague = {
+  fetchedAt: string; privateLeague: unknown; note: string
+  systemLeagues: { name: string; type: string; members: number; rank: number }[]
+}
+export const useFantasyLeague = () =>
+  useQuery({ queryKey: ['league-fantasy'], queryFn: () => get<FantasyLeague>('/data/league/fantasy.json') })
+
 export type Picks = {
   round: number; status: string; generated: string
   fantasy: {

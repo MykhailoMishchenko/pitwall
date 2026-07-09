@@ -1,0 +1,30 @@
+{
+  "game": "predict",
+  "leagueName": "ЕФОДИН",
+  "leagueType": "PRIVATE",
+  "members": 1756,
+  "fetchedAt": "2026-07-09T11:53:00Z",
+  "sortNote": "рейтинг за останній тур (gameday)",
+  "me": { "rank": 1572, "team": "Mishunchik", "user": "Mykhailo Mishchenko", "season": 65, "isMe": true },
+  "standings": [
+    { "rank": 1, "team": "bober_69", "user": "Joseph Korin", "season": 976, "trend": 2 },
+    { "rank": 2, "team": "Ihorinho", "user": "Ihor Polishchak", "season": 799, "trend": 2 },
+    { "rank": 3, "team": "MKGoats", "user": "Danila Shpak", "season": 440, "trend": 2 },
+    { "rank": 4, "team": "EclipseWithin", "user": "Vladyslav Hlushko", "season": 681, "trend": 2 },
+    { "rank": 5, "team": "Stas86", "user": "Stanislav Nozhenko", "season": 390, "trend": 2 },
+    { "rank": 6, "team": "kimi_km", "user": "kimi kimi", "season": 239, "trend": 2 },
+    { "rank": 7, "team": "F1 rage", "user": "Andrii Yaremko", "season": 518, "trend": 2 },
+    { "rank": 8, "team": "StoRmUA", "user": "Valik Kolodiazhnyi", "season": 661, "trend": 2 },
+    { "rank": 9, "team": "OleksandrK", "user": "Oleksandr Kryklyvets", "season": 360, "trend": 2 },
+    { "rank": 10, "team": "ForzaFJ", "user": "Alex Kryvorotov", "season": 819, "trend": 2 },
+    { "rank": 11, "team": "Nastradamus", "user": "Standwith Ukraine", "season": 992, "trend": 2 },
+    { "rank": 12, "team": "venhzhyn", "user": "VASYL VENHZHYN", "season": 868, "trend": 2 },
+    { "rank": 13, "team": "Gromov1805", "user": "Anton Gromov", "season": 151, "trend": 0 },
+    { "rank": 14, "team": "fenix17111", "user": "Viktor Melnyk", "season": 881, "trend": 2 },
+    { "rank": 15, "team": "Pavlo Smachylo", "user": "Pavlo Smachylo", "season": 536, "trend": 0 }
+  ],
+  "rivals": [
+    { "rank": 66, "team": "Maks Podzigun", "user": "Maks Podzigun", "season": 1157, "trend": 2, "tag": "коментатор F1" },
+    { "rank": 140, "team": "Podz9man F1 Team", "user": "Nazarii Podzihun", "season": 874, "trend": 3 }
+  ]
+}

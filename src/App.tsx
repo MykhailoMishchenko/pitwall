@@ -9,7 +9,8 @@ import Fantasy from './screens/Fantasy'
 import Predict from './screens/Predict'
 import Profiles from './screens/Profiles'
 import Weekend from './screens/Weekend'
-import { Favorites, League, Live, Model, Paddock, Strategy } from './screens/Stubs'
+import League from './screens/League'
+import { Favorites, Live, Model, Paddock, Strategy } from './screens/Stubs'
 
 export default function App() {
   useClawdRoamer()

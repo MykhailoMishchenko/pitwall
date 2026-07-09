@@ -27,17 +27,6 @@ export function Strategy() {
   )
 }
 
-export function League() {
-  return (
-    <Screen no="07" title="ЛІГА">
-      <div className="grid g-2">
-        <Placeholder title="ТАБЛИЦІ · FANTASY + PREDICT" text="PITWALL by Claude проти живих суперників. Дані ліги — з приватного API після Phase 0." chip="ЧЕКАЄ PHASE 0" />
-        <Placeholder title="ПІКИ СУПЕРНИКІВ · ПІСЛЯ ЛОКА" text="Differential-піки, збіг із моделлю, позначки «людина обіграла модель» → прямо в learnings." chip="ПІСЛЯ ЛОКА" />
-      </div>
-    </Screen>
-  )
-}
-
 export function Model() {
   const { data } = useModel()
   return (
