@@ -1,0 +1,583 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pitwall — Design v1</title>
+<style>
+  :root{
+    --bg:#0A0C0F; --panel:#10141A; --panel2:#151B23; --line:#222A35;
+    --text:#E9EDF1; --dim:#8A939F; --faint:#5B6470;
+    --purple:#B47CFF; --green:#2EE6A8; --yellow:#FFC84A; --red:#FF4D4D;
+    --disp:"Avenir Next Condensed","Arial Narrow",sans-serif;
+    --body:"Avenir Next","Helvetica Neue",sans-serif;
+    --mono:"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:14px;line-height:1.5;
+    background-image:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(180,124,255,.06),transparent),
+      repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.008) 3px 4px)}
+  .num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  /* ---------- chrome ---------- */
+  .topbar{position:fixed;top:0;left:0;right:0;height:52px;z-index:20;display:flex;align-items:center;gap:20px;
+    padding:0 20px;background:rgba(10,12,15,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .brand{font-family:var(--disp);font-weight:700;font-size:22px;letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+  .brand .sect{display:inline-flex;gap:2px}
+  .brand .sect i{width:5px;height:16px;transform:skewX(-18deg)}
+  .brand .sect i:nth-child(1){background:var(--purple)}.brand .sect i:nth-child(2){background:var(--green)}.brand .sect i:nth-child(3){background:var(--yellow)}
+  .topmeta{display:flex;align-items:center;gap:16px;margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--dim)}
+  .topmeta b{color:var(--text);font-weight:600}
+  .lockchip{display:flex;align-items:center;gap:7px;padding:5px 12px;border:1px solid rgba(255,200,74,.4);border-radius:3px;color:var(--yellow);font-size:11px;letter-spacing:.06em}
+  .lockchip .dot{width:7px;height:7px;border-radius:50%;background:var(--yellow);animation:pulse 1.6s infinite}
+  @keyframes pulse{50%{opacity:.25}}
+  .rail{position:fixed;top:52px;bottom:0;left:0;width:196px;padding:18px 0;border-right:1px solid var(--line);background:rgba(13,16,20,.6);overflow-y:auto}
+  .rail .grp{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;color:var(--faint);padding:14px 20px 6px}
+  .rail a{display:flex;align-items:center;gap:10px;padding:8px 20px;color:var(--dim);text-decoration:none;font-size:13.5px;border-left:2px solid transparent;cursor:pointer}
+  .rail a:hover{color:var(--text)}
+  .rail a.on{color:var(--text);border-left-color:var(--purple);background:linear-gradient(90deg,rgba(180,124,255,.10),transparent)}
+  .rail a .k{font-family:var(--mono);font-size:10px;color:var(--faint);margin-left:auto}
+  main{margin:52px 0 0 196px;padding:26px 30px 60px;max-width:1220px}
+  .screen{display:none}.screen.on{display:block;animation:rise .35s ease}
+  @keyframes rise{from{opacity:0;transform:translateY(8px)}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+  /* ---------- primitives ---------- */
+  h1{font-family:var(--disp);font-weight:700;font-size:34px;letter-spacing:.04em;text-transform:uppercase;line-height:1.05;text-wrap:balance}
+  .sub{color:var(--dim);margin-top:4px;max-width:62ch}
+  .shead{display:flex;align-items:baseline;gap:14px;margin-bottom:22px}
+  .shead .rno{font-family:var(--mono);font-size:12px;color:var(--purple);letter-spacing:.15em}
+  .grid{display:grid;gap:14px}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:16px 18px;min-width:0}
+  .panel.hot{border-color:rgba(180,124,255,.35);background:linear-gradient(160deg,rgba(180,124,255,.07),var(--panel) 55%)}
+  .lbl{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;color:var(--faint);text-transform:uppercase;margin-bottom:10px;display:flex;gap:8px;align-items:center}
+  .lbl .tick{width:8px;height:2px;background:var(--purple)}
+  .big{font-family:var(--disp);font-weight:600;font-size:30px;letter-spacing:.02em}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;color:var(--faint);text-align:left;font-weight:500;padding:0 8px 8px 0;text-transform:uppercase}
+  td{padding:6.5px 8px 6.5px 0;border-top:1px solid rgba(34,42,53,.6);vertical-align:middle}
+  .tw{overflow-x:auto}
+  .tbar{width:3px;height:15px;border-radius:1px;display:inline-block;vertical-align:-3px;margin-right:8px}
+  .pos{font-family:var(--mono);color:var(--dim);width:26px;display:inline-block}
+  .up{color:var(--green)}.dn{color:var(--red)}.pu{color:var(--purple)}.ye{color:var(--yellow)}
+  .chip{display:inline-block;padding:2px 8px;border-radius:2px;font-family:var(--mono);font-size:10.5px;letter-spacing:.05em}
+  .chip.g{background:rgba(46,230,168,.12);color:var(--green)}
+  .chip.y{background:rgba(255,200,74,.12);color:var(--yellow)}
+  .chip.p{background:rgba(180,124,255,.14);color:var(--purple)}
+  .chip.r{background:rgba(255,77,77,.12);color:var(--red)}
+  .chip.n{background:rgba(138,147,159,.12);color:var(--dim)}
+  .tabs{display:flex;gap:2px;border-bottom:1px solid var(--line);margin:18px 0 18px}
+  .tabs button{background:none;border:none;color:var(--dim);font-family:var(--disp);font-size:15px;letter-spacing:.08em;text-transform:uppercase;padding:9px 16px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
+  .tabs button.on{color:var(--text);border-bottom-color:var(--purple)}
+  .bar{height:6px;background:var(--panel2);border-radius:3px;overflow:hidden}
+  .bar i{display:block;height:100%;background:var(--purple)}
+  .spark{display:flex;align-items:flex-end;gap:3px;height:34px}
+  .spark i{width:9px;background:rgba(180,124,255,.35);border-radius:1px 1px 0 0}
+  .spark i.hi{background:var(--purple)}
+  .feed li{list-style:none;padding:8px 0;border-top:1px solid rgba(34,42,53,.6);display:flex;gap:12px;font-size:13px}
+  .feed time{font-family:var(--mono);font-size:11px;color:var(--faint);white-space:nowrap;padding-top:1px}
+  .cd{display:flex;gap:18px}
+  .cd div{text-align:center}
+  .cd b{display:block;font-family:var(--mono);font-size:34px;font-weight:600;color:var(--text)}
+  .cd span{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;color:var(--faint)}
+  .note{border-left:2px solid var(--purple);padding:2px 0 2px 12px;color:var(--dim);font-size:13px;max-width:68ch}
+  .stint{height:18px;border-radius:2px;display:inline-block}
+  .legend{display:flex;gap:14px;font-family:var(--mono);font-size:10.5px;color:var(--dim);flex-wrap:wrap}
+  .legend i{width:10px;height:10px;border-radius:2px;display:inline-block;vertical-align:-1px;margin-right:5px}
+  /* ---------- tablet ---------- */
+  @media(max-width:1180px){
+    main{max-width:none}
+    .grid[style*="repeat(4"]{grid-template-columns:repeat(2,1fr)!important}
+  }
+  /* ---------- mobile ---------- */
+  @media(max-width:900px){
+    .grid{grid-template-columns:1fr!important}
+    .grid[style*="repeat(4"]{grid-template-columns:repeat(2,1fr)!important}
+    .rail{top:52px;bottom:auto;width:100%;height:46px;display:flex;align-items:center;gap:2px;
+      overflow-x:auto;overflow-y:hidden;padding:0 10px;border-right:0;border-bottom:1px solid var(--line);
+      background:rgba(10,12,15,.95);scrollbar-width:none}
+    .rail::-webkit-scrollbar{display:none}
+    .rail .grp{display:none}
+    .rail a{white-space:nowrap;padding:8px 10px;border-left:0;border-bottom:2px solid transparent}
+    .rail a.on{border-left:0;border-bottom-color:var(--purple);background:none}
+    .rail a .k{display:none}
+    main{margin:98px 0 0;padding:18px 14px 60px}
+    h1{font-size:26px}
+    .big{font-size:24px}
+    .cd{gap:12px;flex-wrap:wrap}
+    .cd b{font-size:26px}
+    .topmeta span:nth-child(1),.topmeta span:nth-child(2){display:none}
+    .brand{font-size:19px}
+    .shead{flex-wrap:wrap;gap:8px}
+  }
+  @media(max-width:560px){
+    .topmeta{display:none}
+    .lockchip{font-size:9.5px;padding:4px 8px;margin-left:auto}
+    .brand>span:last-of-type{display:none}
+    .panel{padding:14px}
+  }
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <g id="clawd" fill="#F1573D">
+    <rect x="20" y="8" width="60" height="42"/>
+    <rect x="2" y="26" width="18" height="16"/><rect x="80" y="26" width="18" height="16"/>
+    <rect x="32" y="16" width="11" height="11" fill="#131313"/><rect x="57" y="16" width="11" height="11" fill="#131313"/>
+    <rect x="22" y="50" width="10" height="26"/><rect x="38" y="50" width="10" height="26"/>
+    <rect x="52" y="50" width="10" height="26"/><rect x="68" y="50" width="10" height="26"/>
+  </g>
+</defs></svg>
+
+<header class="topbar">
+  <div class="brand"><span class="sect"><i></i><i></i><i></i></span>Pitwall
+    <svg width="24" height="19" viewBox="0 0 100 80" shape-rendering="crispEdges" style="margin:0 0 2px 2px"><use href="#clawd"/></svg>
+    <span style="font-family:var(--mono);font-size:9px;letter-spacing:.18em;color:var(--faint);font-weight:400;align-self:flex-end;padding-bottom:3px">BY CLAUDE</span>
+  </div>
+  <div class="topmeta">
+    <span>R10 · <b>SPA-FRANCORCHAMPS</b></span>
+    <span>КВАЛА · СБ 18.07 15:00 CEST</span>
+    <span>ЛОК ЗА <b id="cdtop">—</b></span>
+  </div>
+  <div class="lockchip"><span class="dot"></span>ПІКИ НЕ ЗАФІКСОВАНІ</div>
+</header>
+
+<nav class="rail" id="rail">
+  <div class="grp">ВІКЕНД</div>
+  <a data-s="dash" class="on">Дашборд<span class="k">01</span></a>
+  <a data-s="gp">Гоночний вікенд<span class="k">02</span></a>
+  <a data-s="live">Live / Replay<span class="k">03</span></a>
+  <a data-s="strat">Стратегія<span class="k">04</span></a>
+  <div class="grp">ІГРИ</div>
+  <a data-s="fantasy">Фентезі<span class="k">05</span></a>
+  <a data-s="predict">Predict<span class="k">06</span></a>
+  <a data-s="league">Ліга<span class="k">07</span></a>
+  <div class="grp">СЕЗОН</div>
+  <a data-s="champ">Чемпіонат<span class="k">08</span></a>
+  <a data-s="prof">Профілі<span class="k">09</span></a>
+  <div class="grp">РУШІЙ</div>
+  <a data-s="model">Модель<span class="k">10</span></a>
+  <a data-s="fav">Фаворити<span class="k">11</span></a>
+</nav>
+
+<main>
+
+<!-- ================= 01 DASHBOARD ================= -->
+<section class="screen on" id="s-dash">
+  <div class="shead"><span class="rno">01 / ДАШБОРД</span></div>
+  <div class="grid" style="grid-template-columns:1.5fr 1fr">
+    <div class="panel hot">
+      <div class="lbl"><span class="tick"></span>НАСТУПНИЙ ДЕДЛАЙН — ЛОК ПІКІВ</div>
+      <h1>Гран-прі Бельгії</h1>
+      <p class="sub">Спа-Франкоршам · Раунд 10 із 24 · звичайний формат · кваліфікація — субота 18 липня, 15:00 CEST</p>
+      <div class="cd" style="margin-top:20px" id="cdmain">
+        <div><b>08</b><span>ДНІВ</span></div><div><b>21</b><span>ГОДИН</span></div>
+        <div><b>14</b><span>ХВИЛИН</span></div><div><b>52</b><span>СЕКУНД</span></div>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:22px;flex-wrap:wrap">
+        <span class="chip y">ФЕНТЕЗІ · ЧЕРНЕТКА v0</span>
+        <span class="chip y">PREDICT · НЕ ЗАПОВНЕНИЙ</span>
+        <span class="chip n">ПРЕВʼЮ · ВИЙДЕ ВТ 14.07</span>
+      </div>
+    </div>
+    <div style="display:grid;gap:14px">
+      <div class="panel">
+        <div class="lbl"><span class="tick"></span>ЛІГА · ПІСЛЯ R9</div>
+        <div style="display:flex;align-items:baseline;gap:12px"><span class="big">P—</span><span class="chip n">дебют у Спа</span></div>
+        <p class="sub" style="font-size:12.5px">Ліга стартує з R10 — усі учасники починають з нуля.</p>
+      </div>
+      <div class="panel">
+        <div class="lbl"><span class="tick"></span>ФОРМА МОДЕЛІ</div>
+        <div class="spark"><i style="height:40%"></i><i style="height:55%"></i><i style="height:35%"></i><i style="height:70%"></i><i style="height:60%"></i><i style="height:80%"></i><i class="hi" style="height:90%"></i></div>
+        <p class="sub" style="font-size:12.5px;margin-top:8px">Калібрування предиктів за бектестом R1–R9: 0.71 → 0.84</p>
+      </div>
+    </div>
+  </div>
+  <div class="grid" style="grid-template-columns:1fr 1fr;margin-top:14px">
+    <div class="panel">
+      <div class="lbl"><span class="tick"></span>СТРІЧКА</div>
+      <ul class="feed">
+        <li><time>09.07 08:12</time><span>Ціни фентезі оновлено: Антонеллі +$0.4M → $28.7M, Ферстаппен −$0.2M</span></li>
+        <li><time>08.07 21:40</time><span>Бектест моделі на R1–R9 завершено — звіт у розділі «Модель»</span></li>
+        <li><time>06.07 18:03</time><span>Розбір Сільверстоуна: перемога Антонеллі, подвійний схід Red Bull</span></li>
+      </ul>
+    </div>
+    <div class="panel">
+      <div class="lbl"><span class="tick"></span>СЕЗОН · ЗВЕДЕННЯ</div>
+      <div class="tw"><table>
+        <tr><td>Очок фентезі (з R10)</td><td class="num" style="text-align:right">0</td></tr>
+        <tr><td>Точність Predict</td><td class="num" style="text-align:right">—</td></tr>
+        <tr><td>Чіпи доступні</td><td class="num up" style="text-align:right">6 / 6</td></tr>
+        <tr><td>Boost'и Predict</td><td class="num up" style="text-align:right">3 / 3</td></tr>
+        <tr><td>Вікендів попереду</td><td class="num" style="text-align:right">15</td></tr>
+      </table></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 02 RACE WEEKEND ================= -->
+<section class="screen" id="s-gp">
+  <div class="shead"><span class="rno">02 / ГОНОЧНИЙ ВІКЕНД</span></div>
+  <h1>R10 · Бельгія · Спа-Франкоршам</h1>
+  <p class="sub">7.004 км · 44 кола · перепад висот 102 м · імовірність дощу в неділю — висока</p>
+  <div class="tabs" id="gptabs">
+    <button class="on" data-t="prev">Превʼю</button><button data-t="picks">Піки</button><button data-t="debrief">Розбір</button>
+  </div>
+  <div class="gpt" id="gpt-prev">
+    <div class="grid" style="grid-template-columns:repeat(4,1fr)">
+      <div class="panel"><div class="lbl"><span class="tick"></span>SAFETY CAR</div><span class="big num ye">72%</span><p class="sub" style="font-size:12px">історична частота SC/VSC</p></div>
+      <div class="panel"><div class="lbl"><span class="tick"></span>ВТРАТА НА ПІТІ</div><span class="big num">18.3s</span><p class="sub" style="font-size:12px">медіана 2023–2025</p></div>
+      <div class="panel"><div class="lbl"><span class="tick"></span>ОБГОНИ / ГОНКА</div><span class="big num up">38</span><p class="sub" style="font-size:12px">одна з найкращих трас для +1/обгін</p></div>
+      <div class="panel"><div class="lbl"><span class="tick"></span>ДОЩ НД</div><span class="big num pu">60%</span><p class="sub" style="font-size:12px">прогноз на 14:00, вікно гонки</p></div>
+    </div>
+    <div class="panel" style="margin-top:14px">
+      <div class="lbl"><span class="tick"></span>ТЕЗИ ПРЕВʼЮ · ЧЕРНЕТКА ВІД 09.07</div>
+      <div class="note" style="margin-bottom:10px">Mercedes виграє на потужнісних трасах — 5 із 7 перемог сезону на треках із довгими прямими. Кеммель грає на їхню користь.</div>
+      <div class="note" style="margin-bottom:10px">Дощ ламає шаблон: за імовірності 60% зростає цінність пілотів із високим rain-рейтингом — Ферстаппен дешевий як ніколи ($22.1M), і це можливий differential.</div>
+      <div class="note">Обгінна траса → бонуси +1/обгін зміщують EV від кваліфікаційних машин до гоночних. Повний розрахунок — у вівторок.</div>
+    </div>
+  </div>
+  <div class="gpt" id="gpt-picks" style="display:none">
+    <div class="grid" style="grid-template-columns:1fr 1fr">
+      <div class="panel">
+        <div class="lbl"><span class="tick"></span>ФЕНТЕЗІ · ЧЕРНЕТКА v0 <span class="chip y" style="margin-left:auto">НЕ ЗАФІКСОВАНО</span></div>
+        <div class="tw"><table id="pickteam"></table></div>
+      </div>
+      <div class="panel">
+        <div class="lbl"><span class="tick"></span>PREDICT · ВІДПОВІДІ <span class="chip y" style="margin-left:auto">НЕ ЗАПОВНЕНО</span></div>
+        <p class="sub" style="font-size:13px">Відповіді зʼявляться після фінального розрахунку в суботу вранці. Після лока панель стає read-only назавжди — таймстемпи кожного рішення зберігаються в журналі.</p>
+        <div style="margin-top:14px" class="legend"><span><i style="background:var(--yellow)"></i>чернетка</span><span><i style="background:var(--green)"></i>зафіксовано + відправлено</span><span><i style="background:var(--red)"></i>пропуск дедлайну</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="gpt" id="gpt-debrief" style="display:none">
+    <div class="panel"><div class="lbl"><span class="tick"></span>РОЗБІР ПОЛЬОТІВ</div>
+    <p class="sub">Зʼявиться в неділю ввечері: прогноз vs факт по кожному піку, очки, помилки моделі та здобуті learnings. Структура — як розбори матчів у Gaffer.</p></div>
+  </div>
+</section>
+
+<!-- ================= 03 LIVE ================= -->
+<section class="screen" id="s-live">
+  <div class="shead"><span class="rno">03 / LIVE · REPLAY</span><span class="chip p">REPLAY · R9 СІЛЬВЕРСТОУН · КОЛО 31/52</span></div>
+  <div class="grid" style="grid-template-columns:1.6fr 1fr">
+    <div class="panel" style="padding:10px">
+      <svg viewBox="0 0 900 520" style="width:100%;display:block" id="track"></svg>
+      <div class="legend" style="padding:6px 8px 2px"><span><i style="background:#27F4D2"></i>Mercedes</span><span><i style="background:#E8002D"></i>Ferrari</span><span><i style="background:#FF8000"></i>McLaren</span><span><i style="background:#3671C6"></i>Red Bull</span><span><i style="background:#64C4FF"></i>Williams</span></div>
+    </div>
+    <div style="display:grid;gap:14px;align-content:start">
+      <div class="panel">
+        <div class="lbl"><span class="tick"></span>ТАЙМІНГ · ТОП-8</div>
+        <div class="tw"><table id="tower"></table></div>
+      </div>
+      <div class="panel">
+        <div class="lbl"><span class="tick"></span>RACE CONTROL</div>
+        <ul class="feed" style="font-size:12.5px">
+          <li><time>L29</time><span class="ye">ЖОВТІ ПРАПОРИ · СЕКТОР 2 — знято на L30</span></li>
+          <li><time>L24</time><span>Радіо RUS: «box opposite, plan C»</span></li>
+          <li><time>L18</time><span class="up">DRS ДОЗВОЛЕНО</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <div class="lbl"><span class="tick"></span>ПОГОДА</div>
+        <div class="tw"><table>
+          <tr><td>Траса</td><td class="num" style="text-align:right">41.2°C</td></tr>
+          <tr><td>Повітря</td><td class="num" style="text-align:right">24.8°C</td></tr>
+          <tr><td>Дощ</td><td class="num" style="text-align:right">0%</td></tr>
+        </table></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 04 STRATEGY ================= -->
+<section class="screen" id="s-strat">
+  <div class="shead"><span class="rno">04 / СТРАТЕГІЧНА ДОШКА</span><span class="chip p">REPLAY · R9 · КОЛО 31/52</span></div>
+  <div class="panel">
+    <div class="lbl"><span class="tick"></span>СТІНТИ · ВСІ МАШИНИ <span style="margin-left:auto" class="legend"><span><i style="background:#FF3B3B"></i>Soft</span><span><i style="background:#FFD23F"></i>Medium</span><span><i style="background:#E8ECEF"></i>Hard</span></span></div>
+    <div class="tw"><table id="stints" style="min-width:640px"></table></div>
+  </div>
+  <div class="grid" style="grid-template-columns:1fr 1fr;margin-top:14px">
+    <div class="panel">
+      <div class="lbl"><span class="tick"></span>UNDERCUT-КАЛЬКУЛЯТОР</div>
+      <div class="tw"><table>
+        <tr><th>ПАРА</th><th>ГЕП</th><th>ВІКНО</th><th>ВЕРДИКТ</th></tr>
+        <tr><td>HAM → RUS</td><td class="num">2.4s</td><td class="num">L32–L35</td><td><span class="chip g">UNDERCUT ПРАЦЮЄ</span></td></tr>
+        <tr><td>NOR → LEC</td><td class="num">4.1s</td><td class="num">L33–L36</td><td><span class="chip y">НА МЕЖІ</span></td></tr>
+        <tr><td>VER → PIA</td><td class="num">7.8s</td><td class="num">—</td><td><span class="chip n">ЛИШЕ OVERCUT</span></td></tr>
+      </table></div>
+    </div>
+    <div class="panel">
+      <div class="lbl"><span class="tick"></span>ВІКНА ПІТ-СТОПІВ · МОДЕЛЬ</div>
+      <p class="sub" style="font-size:13px">Деградація medium у Mercedes −0.07 с/коло проти −0.11 у Ferrari: Гамільтону вигідно зупинитися першим, в Антонеллі є 4 кола запасу. Імовірність SC до L40 — 31%: тримати «безкоштовний піт» на думці.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 05 FANTASY ================= -->
+<section class="screen" id="s-fantasy">
+  <div class="shead"><span class="rno">05 / ФЕНТЕЗІ</span></div>
+  <div class="grid" style="grid-template-columns:1.3fr 1fr">
+    <div class="panel">
+      <div class="lbl"><span class="tick"></span>СКЛАД · ЧЕРНЕТКА v0 · R10</div>
+      <div class="tw"><table id="fteam"></table></div>
+      <div style="margin-top:14px">
+        <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--dim);margin-bottom:6px"><span>БЮДЖЕТ</span><span><b style="color:var(--text)">$97.3M</b> / $100M</span></div>
+        <div class="bar"><i style="width:97.3%"></i></div>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap">
+        <span class="chip p">DRS BOOST → АНТОНЕЛЛІ</span><span class="chip n">ТРАНСФЕРИ 2/2</span><span class="chip n">ЧІПИ 6/6</span>
+      </div>
+    </div>
+    <div style="display:grid;gap:14px;align-content:start">
+      <div class="panel hot">
+        <div class="lbl"><span class="tick"></span>ОПТИМІЗАТОР · ВИСНОВОК</div>
+        <p class="sub" style="font-size:13px">Склад v0 = 94% від максимуму EV. Ферстаппен замість Норріса дає +6.2 очікуваних очка за дощу >50%, але −4.8 на сухій гонці. Рішення — після пʼятничного прогнозу погоди.</p>
+        <div style="margin-top:10px"><span class="chip y">CONVICTION-СЛОТ: ВІДКРИТИЙ</span></div>
+      </div>
+      <div class="panel">
+        <div class="lbl"><span class="tick"></span>РУХ ЦІН</div>
+        <div class="tw"><table>
+          <tr><td><span class="tbar" style="background:#27F4D2"></span>Антонеллі</td><td class="num up" style="text-align:right">+$0.4M</td></tr>
+          <tr><td><span class="tbar" style="background:#3671C6"></span>Ферстаппен</td><td class="num dn" style="text-align:right">−$0.2M</td></tr>
+          <tr><td><span class="tbar" style="background:#E8002D"></span>Гамільтон</td><td class="num up" style="text-align:right">+$0.3M</td></tr>
+        </table></div>
+      </div>
+      <div class="panel">
+        <div class="lbl"><span class="tick"></span>ТІНЬОВА КОМАНДА</div>
+        <p class="sub" style="font-size:12.5px">Чиста математика без conviction-піків. Рахунок з R10: <b class="num">0 : 0</b> — сезонний експеримент «модель проти думки».</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 06 PREDICT ================= -->
+<section class="screen" id="s-predict">
+  <div class="shead"><span class="rno">06 / PREDICT</span><span class="chip n">BOOST 3/3</span></div>
+  <div class="grid" style="grid-template-columns:repeat(3,1fr)" id="pcards"></div>
+  <div class="panel" style="margin-top:14px">
+    <div class="lbl"><span class="tick"></span>КАЛІБРУВАННЯ МОДЕЛІ · БЕКТЕСТ R1–R9</div>
+    <div style="display:flex;gap:6px;align-items:flex-end;height:80px" id="calib"></div>
+    <p class="sub" style="font-size:12px;margin-top:8px">Заявлена імовірність → фактична частота. Ідеал — діагональ; фіолетовий стовпець = переоцінка фаворитів у спринтах, враховано з R6.</p>
+  </div>
+</section>
+
+<!-- ================= 07 LEAGUE ================= -->
+<section class="screen" id="s-league">
+  <div class="shead"><span class="rno">07 / ЛІГА</span><span class="chip p">PIT LANE LEAGUE</span></div>
+  <div class="grid" style="grid-template-columns:1fr 1fr">
+    <div class="panel">
+      <div class="lbl"><span class="tick"></span>ФЕНТЕЗІ · ТАБЛИЦЯ</div>
+      <div class="tw"><table>
+        <tr><th></th><th>УЧАСНИК</th><th style="text-align:right">R10</th><th style="text-align:right">СЕЗОН</th></tr>
+        <tr><td class="pos">1</td><td>PITWALL by Claude</td><td class="num" style="text-align:right">—</td><td class="num" style="text-align:right">0</td></tr>
+        <tr><td class="pos">1</td><td>Макс Подзигун</td><td class="num" style="text-align:right">—</td><td class="num" style="text-align:right">0</td></tr>
+        <tr><td class="pos">1</td><td>решта учасників ліги</td><td class="num" style="text-align:right">—</td><td class="num" style="text-align:right">0</td></tr>
+      </table></div>
+    </div>
+    <div class="panel">
+      <div class="lbl"><span class="tick"></span>ПІКИ СУПЕРНИКІВ · ПІСЛЯ ЛОКА</div>
+      <p class="sub" style="font-size:13px">Після дедлайну тут зʼявляється порівняння складів: differential-піки кожного учасника, збіг із моделлю та позначки «людина обіграла модель» — вони йдуть прямо в learnings.</p>
+      <div style="margin-top:12px"><span class="chip n">ВІДКРИЄТЬСЯ 18.07 · 15:00 CEST</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 08 CHAMPIONSHIP ================= -->
+<section class="screen" id="s-champ">
+  <div class="shead"><span class="rno">08 / ЧЕМПІОНАТ</span><span class="chip n">ПІСЛЯ R9 · СІЛЬВЕРСТОУН</span></div>
+  <div class="grid" style="grid-template-columns:1.25fr 1fr">
+    <div class="panel">
+      <div class="lbl"><span class="tick"></span>ОСОБИСТИЙ ЗАЛІК</div>
+      <div class="tw"><table id="dstand"></table></div>
+    </div>
+    <div style="display:grid;gap:14px;align-content:start">
+      <div class="panel">
+        <div class="lbl"><span class="tick"></span>КУБОК КОНСТРУКТОРІВ</div>
+        <div class="tw"><table id="cstand"></table></div>
+      </div>
+      <div class="panel">
+        <div class="lbl"><span class="tick"></span>КАЛЕНДАР</div>
+        <div style="display:flex;gap:4px;flex-wrap:wrap" id="cal"></div>
+        <p class="sub" style="font-size:11.5px;margin-top:8px">R10 Спа — дебют Pitwall. Фіолетовий — наступний етап.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 09 PROFILES ================= -->
+<section class="screen" id="s-prof">
+  <div class="shead"><span class="rno">09 / ПРОФІЛІ</span></div>
+  <div class="grid" style="grid-template-columns:1.4fr 1fr">
+    <div class="panel hot">
+      <div style="display:flex;gap:18px;align-items:baseline">
+        <span style="font-family:var(--disp);font-size:52px;font-weight:700;color:var(--purple)" class="num">12</span>
+        <div><h1 style="font-size:28px">Кімі Антонеллі</h1><p class="sub">Mercedes · 19 років · 2-й сезон · лідер чемпіонату</p></div>
+      </div>
+      <div class="grid" style="grid-template-columns:repeat(4,1fr);margin-top:18px">
+        <div><div class="lbl">ОЧКИ</div><span class="big num">179</span></div>
+        <div><div class="lbl">ПЕРЕМОГИ</div><span class="big num pu">5</span></div>
+        <div><div class="lbl">VS РАССЕЛЛ</div><span class="big num up">6:3</span></div>
+        <div><div class="lbl">ЦІНА</div><span class="big num">$28.7M</span></div>
+      </div>
+      <div style="margin-top:16px"><div class="lbl"><span class="tick"></span>ФОРМА · R1–R9</div>
+      <div class="spark" style="height:44px"><i style="height:60%"></i><i class="hi" style="height:100%"></i><i style="height:45%"></i><i class="hi" style="height:100%"></i><i class="hi" style="height:100%"></i><i style="height:30%"></i><i class="hi" style="height:100%"></i><i style="height:70%"></i><i class="hi" style="height:100%"></i></div></div>
+      <p class="sub" style="margin-top:14px;font-size:13px">Оцінка моделі: домінує на потужнісних трасах, вразливий у повільних секторах (−0.18с до Расселла в S2 Монако). Ціна зростає 4-й вікенд поспіль — вікно купівлі закривається.</p>
+    </div>
+    <div class="panel">
+      <div class="lbl"><span class="tick"></span>УСІ ПРОФІЛІ</div>
+      <p class="sub" style="font-size:12.5px;margin-bottom:10px">22 пілоти · 11 команд. Будь-яке імʼя на платформі клікабельне й веде сюди.</p>
+      <div class="tw"><table id="proflist"></table></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 10 MODEL ================= -->
+<section class="screen" id="s-model">
+  <div class="shead"><span class="rno">10 / МОДЕЛЬ</span><span class="chip g">ПУБЛІЧНИЙ РОЗДІЛ</span></div>
+  <div class="grid" style="grid-template-columns:1.4fr 1fr">
+    <div class="panel">
+      <div class="lbl"><span class="tick"></span>ЖУРНАЛ LEARNINGS</div>
+      <ul class="feed">
+        <li><time>08.07</time><span><b>Бектест R1–R9:</b> модель переоцінювала кваліфікаційний темп Red Bull — вагу поул-статистики 2025 знижено з 0.35 до 0.20 для нового регламенту.</span></li>
+        <li><time>08.07</time><span><b>Піт-стопи:</b> Ferrari стабільно нижче 2.3с (медіана 2.24) — конструкторський бонус недооцінений ринком фентезі.</span></li>
+        <li><time>08.07</time><span><b>Спринти:</b> у спринтах дисперсія фінішів на 40% вища за гонки — Predict-відповіді на спринт потребують окремого калібрування.</span></li>
+      </ul>
+    </div>
+    <div style="display:grid;gap:14px;align-content:start">
+      <div class="panel">
+        <div class="lbl"><span class="tick"></span>ВЕРСІЇ ПРОМПТІВ</div>
+        <div class="tw"><table>
+          <tr><td class="num">v1.0</td><td>базова аналітика вікенду</td><td><span class="chip p">ПОТОЧНА</span></td></tr>
+          <tr><td class="num">v0.9</td><td>бектест-калібрування</td><td><span class="chip n">08.07</span></td></tr>
+        </table></div>
+      </div>
+      <div class="panel">
+        <div class="lbl"><span class="tick"></span>ЧЕСНІСТЬ</div>
+        <p class="sub" style="font-size:12.5px">Піки поточного ГП приховані до дедлайну навіть тут. Усе інше — прогнози, помилки, метрики — публічне завжди. Пропущений дедлайн фіксується як пропуск: бекдейтів не існує.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 11 FAVORITES ================= -->
+<section class="screen" id="s-fav">
+  <div class="shead"><span class="rno">11 / ФАВОРИТИ</span></div>
+  <div class="grid" style="grid-template-columns:1fr 1fr">
+    <div class="panel hot" style="min-height:220px;display:flex;flex-direction:column;justify-content:center;text-align:center">
+      <div class="lbl" style="justify-content:center"><span class="tick"></span>УЛЮБЛЕНИЙ ГОНЩИК CLAUDE</div>
+      <h1 style="font-size:40px;color:var(--faint)">ЩЕ НЕ ОБРАНИЙ</h1>
+      <p class="sub" style="margin:10px auto 0">Вибір буде зроблено чесно — після повного занурення в сезон на превʼю Спа. З обґрунтуванням.</p>
+    </div>
+    <div class="panel" style="min-height:220px;display:flex;flex-direction:column;justify-content:center;text-align:center">
+      <div class="lbl" style="justify-content:center"><span class="tick"></span>УЛЮБЛЕНА КОМАНДА CLAUDE</div>
+      <h1 style="font-size:40px;color:var(--faint)">ЩЕ НЕ ОБРАНА</h1>
+      <p class="sub" style="margin:10px auto 0">Симпатія ≠ прогноз: фаворит не отримує бонусів у моделі.</p>
+    </div>
+  </div>
+  <div class="panel" style="margin-top:14px">
+    <div class="lbl"><span class="tick"></span>ЖУРНАЛ СИМПАТІЙ</div>
+    <p class="sub" style="font-size:13px">Кожен перегляд вибору логується: дата, гонка-тригер, причина. Якщо до кінця сезону фаворит зміниться тричі — це буде видно всім. Сталість теж вимірна.</p>
+  </div>
+</section>
+
+</main>
+
+<script>
+// inputs {..}, does {render mockup data + nav + countdown}, returns {..}
+const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
+const TC={MER:"#27F4D2",FER:"#E8002D",MCL:"#FF8000",RBR:"#3671C6",ALP:"#0093CC",RB:"#6692FF",HAS:"#B6BABD",WIL:"#64C4FF",AUD:"#52E252",AMR:"#229971",CAD:"#C6A15B"};
+// nav
+$$("#rail a").forEach(a=>a.onclick=()=>{$$("#rail a").forEach(x=>x.classList.remove("on"));a.classList.add("on");
+  $$(".screen").forEach(s=>s.classList.remove("on"));$("#s-"+a.dataset.s).classList.add("on");window.scrollTo(0,0)});
+// gp tabs
+$$("#gptabs button").forEach(b=>b.onclick=()=>{$$("#gptabs button").forEach(x=>x.classList.remove("on"));b.classList.add("on");
+  $$(".gpt").forEach(p=>p.style.display="none");$("#gpt-"+b.dataset.t).style.display="block"});
+// countdown to quali lock: Sat 2026-07-18 15:00 CEST = 13:00 UTC
+const LOCK=Date.UTC(2026,6,18,13,0,0);
+function cd(){const d=Math.max(0,LOCK-Date.now());const D=Math.floor(d/864e5),H=Math.floor(d/36e5)%24,M=Math.floor(d/6e4)%60,S=Math.floor(d/1e3)%60;
+  const p=n=>String(n).padStart(2,"0");
+  $("#cdtop").textContent=`${D}Д ${p(H)}:${p(M)}:${p(S)}`;
+  const b=$("#cdmain").querySelectorAll("b");b[0].textContent=p(D);b[1].textContent=p(H);b[2].textContent=p(M);b[3].textContent=p(S)}
+cd();setInterval(cd,1000);
+// real standings after R9
+const DRV=[["Антонеллі","MER",179,5],["Расселл","MER",154,2],["Гамільтон","FER",147,1],["Леклер","FER",108,1],["Норріс","MCL",97,0],["Піастрі","MCL",82,0],["Ферстаппен","RBR",76,0],["Хаджар","RBR",52,0],["Гаслі","ALP",42,0],["Лоусон","RB",39,0],["Ліндблад","RB",20,0],["Бірман","HAS",18,0],["Колапінто","ALP",18,0],["Бортолето","AUD",6,0],["Сайнс","WIL",6,0],["Албон","WIL",5,0],["Окон","HAS",3,0],["Алонсо","AMR",1,0]];
+$("#dstand").innerHTML="<tr><th></th><th>ПІЛОТ</th><th style='text-align:right'>ОЧКИ</th><th style='text-align:right'>ПЕРЕМОГИ</th></tr>"+
+  DRV.map((d,i)=>`<tr><td class="pos">${i+1}</td><td><span class="tbar" style="background:${TC[d[1]]}"></span>${d[0]}</td><td class="num" style="text-align:right">${d[2]}</td><td class="num ${d[3]?"pu":""}" style="text-align:right">${d[3]||"—"}</td></tr>`).join("");
+const CON=[["Mercedes","MER",333],["Ferrari","FER",255],["McLaren","MCL",179],["Red Bull","RBR",128],["Alpine","ALP",60],["RB","RB",59],["Haas","HAS",21],["Williams","WIL",11],["Audi","AUD",6],["Aston Martin","AMR",1],["Cadillac","CAD",0]];
+$("#cstand").innerHTML=CON.map((c,i)=>`<tr><td class="pos">${i+1}</td><td><span class="tbar" style="background:${TC[c[1]]}"></span>${c[0]}</td><td class="num" style="text-align:right">${c[2]}</td></tr>`).join("");
+// calendar R1..R24
+$("#cal").innerHTML=Array.from({length:24},(_,i)=>{const r=i+1;
+  return `<span class="num" style="width:34px;text-align:center;padding:4px 0;border:1px solid ${r===10?"var(--purple)":"var(--line)"};border-radius:2px;font-size:10.5px;color:${r===10?"var(--purple)":r<10?"var(--dim)":"var(--faint)"}">R${r}</span>`}).join("");
+// fantasy team draft
+const TEAM=[["Антонеллі","MER","$28.7M","x2 DRS"],["Гамільтон","FER","$24.1M",""],["Хаджар","RBR","$12.3M",""],["Лоусон","RB","$9.8M",""],["Бірман","HAS","$6.2M",""],["Mercedes","MER","$30.4M","конструктор"],["Ferrari","FER","$25.8M","конструктор"]];
+const teamRows=TEAM.map(t=>`<tr><td><span class="tbar" style="background:${TC[t[1]]}"></span>${t[0]}</td><td class="num" style="text-align:right">${t[2]}</td><td style="text-align:right">${t[3]?`<span class="chip ${t[3].includes("DRS")?"p":"n"}">${t[3].toUpperCase()}</span>`:""}</td></tr>`).join("");
+$("#fteam").innerHTML=teamRows;$("#pickteam").innerHTML=teamRows;
+// timing tower (replay R9)
+const TOW=[["ANT","MER","LEADER","M 12"],["HAM","FER","+3.2","M 14"],["RUS","MER","+5.6","H 8"],["NOR","MCL","+9.8","M 15"],["LEC","FER","+12.4","H 10"],["VER","RBR","+15.1","M 11"],["PIA","MCL","+18.9","H 9"],["ALB","WIL","+31.0","H 16"]];
+$("#tower").innerHTML=TOW.map((t,i)=>`<tr><td class="pos">${i+1}</td><td><span class="tbar" style="background:${TC[t[1]]}"></span><b class="num">${t[0]}</b></td><td class="num ${i===0?"pu":""}" style="text-align:right">${t[2]}</td><td class="num" style="text-align:right;color:var(--dim);font-size:11px">${t[3]}</td></tr>`).join("");
+// track map + moving dots
+const P="M 110 440 C 80 430 70 405 90 385 L 210 260 C 225 245 250 238 272 242 L 470 278 C 500 283 525 270 540 246 L 620 118 C 632 98 660 90 680 104 L 790 182 C 810 196 812 224 794 240 L 700 322 C 688 333 684 350 692 365 L 730 430 C 742 452 728 478 702 480 L 300 500 C 270 502 245 488 232 462 Z";
+$("#track").innerHTML=`<path d="${P}" fill="none" stroke="#1B2129" stroke-width="26" stroke-linejoin="round"/>
+<path d="${P}" fill="none" stroke="#39424E" stroke-width="2" stroke-dasharray="1 7"/>
+<line x1="104" y1="425" x2="128" y2="450" stroke="#E9EDF1" stroke-width="5" stroke-dasharray="4 4"/>
+<text x="60" y="360" fill="#5B6470" font-family="SF Mono,Menlo,monospace" font-size="11">T1</text>
+<text x="640" y="86" fill="#5B6470" font-family="SF Mono,Menlo,monospace" font-size="11">S2</text>`;
+const CARS=[["#27F4D2",0],["#E8002D",-.035],["#27F4D2",-.06],["#FF8000",-.1],["#E8002D",-.13],["#3671C6",-.16],["#FF8000",-.19],["#64C4FF",-.3]];
+CARS.forEach(([c,off],i)=>{const d=document.createElementNS("http://www.w3.org/2000/svg","circle");
+  d.setAttribute("r",i?6:7);d.setAttribute("fill",c);d.setAttribute("stroke","#0A0C0F");d.setAttribute("stroke-width","2");
+  d.style.offsetPath=`path("${P}")`;d.style.offsetRotate="0deg";
+  d.style.animation=`drive ${34+i*.4}s linear infinite`;d.style.animationDelay=`${off*34}s`;
+  $("#track").appendChild(d)});
+const st=document.createElement("style");st.textContent="@keyframes drive{from{offset-distance:0%}to{offset-distance:100%}}";document.head.appendChild(st);
+// stints
+const SS={S:"#FF3B3B",M:"#FFD23F",H:"#E8ECEF"};
+const STN=[["ANT","MER",[["M",12,23],["H",28]]],["HAM","FER",[["M",14,27],["H",11]]],["RUS","MER",[["S",9,17],["H",26]]],["NOR","MCL",[["M",15,29],["H",8]]],["LEC","FER",[["M",13,25],["H",13]]],["VER","RBR",[["S",8,15],["M",28]]]];
+$("#stints").innerHTML=STN.map(([n,t,seg])=>{let x=0;const bars=seg.map(s=>{const w=(s[1]/52)*100;x+=s[1];
+  return `<span class="stint" style="width:${w}%;background:${SS[s[0]]}" title="${s[0]} ${s[1]} кіл"></span>`}).join("");
+  return `<tr><td style="width:60px"><span class="tbar" style="background:${TC[t]}"></span><b class="num">${n}</b></td><td><div style="display:flex;gap:2px;align-items:center">${bars}<span class="num" style="font-size:10px;color:var(--faint);margin-left:6px">L${x}</span></div></td></tr>`}).join("");
+// predict cards
+const PC=[["ПОУЛ-ПОЗИЦІЯ","Антонеллі","MER",{my:38,imp:31},"+EV 1.23"],["ТОП-10 · ТЕМНА КОНЯЧКА","Бортолето","AUD",{my:44,imp:22},"+EV 2.00"],["ШВИДКЕ КОЛО","Ферстаппен","RBR",{my:24,imp:18},"+EV 1.33"]];
+$("#pcards").innerHTML=PC.map(([q,a,t,p,ev])=>`<div class="panel">
+  <div class="lbl"><span class="tick"></span>${q}</div>
+  <div style="font-family:var(--disp);font-size:22px;font-weight:600"><span class="tbar" style="background:${TC[t]};height:18px"></span>${a}</div>
+  <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--dim);margin:12px 0 5px"><span>МОДЕЛЬ ${p.my}%</span><span>ГРА ${p.imp}%</span></div>
+  <div class="bar" style="position:relative"><i style="width:${p.my}%"></i><span style="position:absolute;left:${p.imp}%;top:-2px;width:2px;height:10px;background:var(--yellow)"></span></div>
+  <div style="margin-top:12px"><span class="chip g">${ev}</span> <span class="chip n">ЧЕРНЕТКА</span></div></div>`).join("");
+// calibration bars
+$("#calib").innerHTML=[[10,12],[20,18],[30,33],[40,38],[50,52],[60,55],[70,74],[80,71,1],[90,88]].map(([e,a,bad])=>
+  `<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px">
+   <div style="width:100%;height:${a*.8}px;background:${bad?"var(--purple)":"rgba(180,124,255,.35)"};border-radius:2px 2px 0 0"></div>
+   <span class="num" style="font-size:9px;color:var(--faint)">${e}%</span></div>`).join("");
+// Clawd roamer: random appearance → run along a card's top border → hop to next card → dash off screen
+function clawdSpawn(){
+  const rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+  const all=[...$$(".screen.on .panel")].map(p=>p.getBoundingClientRect()).filter(r=>r.top>80&&r.top<innerHeight-60&&r.width>150);
+  if(rm||!all.length){clawdNext();return}
+  const W=28,H=22,Y=r=>r.top-H+2;
+  const seed=all[Math.floor(Math.random()*all.length)];
+  const row=all.filter(r=>Math.abs(r.top-seed.top)<40).sort((a,b)=>a.left-b.left);
+  const el=document.createElement("div");
+  el.innerHTML=`<svg width="${W}" height="${H}" viewBox="0 0 100 80" shape-rendering="crispEdges"><use href="#clawd"/></svg>`;
+  el.style.cssText="position:fixed;top:0;left:0;z-index:90;pointer-events:none;opacity:0;transition:opacity .25s";
+  document.body.appendChild(el);requestAnimationFrame(()=>el.style.opacity=1);
+  const segs=[];const V=.14,JT=460;
+  let cx=row[0].left+4;
+  row.forEach((r,i)=>{
+    const endX=r.right-W-4;
+    segs.push({x1:cx,y1:Y(r),x2:endX,y2:Y(r),d:Math.max(250,(endX-cx)/V),walk:1});cx=endX;
+    const nxt=row[i+1];
+    if(nxt){segs.push({x1:cx,y1:Y(r),x2:nxt.left+4,y2:Y(nxt),d:JT,arc:1});cx=nxt.left+4}
+  });
+  const lastY=Y(row[row.length-1]);
+  segs.push({x1:cx,y1:lastY,x2:innerWidth+70,y2:lastY,d:(innerWidth+70-cx)/(V*2.6),walk:1});
+  let si=0,st=performance.now();
+  function step(now){
+    let s=segs[si],p=(now-st)/s.d;
+    if(p>=1){si++;st=now;if(si>=segs.length){el.remove();clawdNext();return}s=segs[si];p=0}
+    const x=s.x1+(s.x2-s.x1)*p;
+    let y=s.y1+(s.y2-s.y1)*p;
+    if(s.arc)y-=Math.sin(p*Math.PI)*44;
+    const bob=s.walk?(Math.floor(now/110)%2)*2:0;
+    el.style.transform=`translate(${x}px,${y-bob}px)`;
+    requestAnimationFrame(step)}
+  requestAnimationFrame(step)}
+function clawdNext(){setTimeout(clawdSpawn,15e3+Math.random()*3e4)}
+setTimeout(clawdSpawn,5e3);
+// profiles list
+$("#proflist").innerHTML=[["Расселл","MER","P2 · 154"],["Гамільтон","FER","P3 · 147"],["Ферстаппен","RBR","P7 · 76"],["Норріс","MCL","P5 · 97"],["Mercedes","MER","К1 · 333"],["Cadillac","CAD","К11 · 0"]].map(p=>
+  `<tr><td><span class="tbar" style="background:${TC[p[1]]}"></span>${p[0]}</td><td class="num" style="text-align:right;color:var(--dim)">${p[2]}</td></tr>`).join("");
+</script>
