@@ -12,7 +12,7 @@ export function Rail() {
   return (
     <nav className="rail">
       {GROUPS.map((g) => (
-        <div key={g.title}>
+        <div key={g.title} className="grpwrap">
           <div className="grp">{g.title}</div>
           {g.items.map(([to, label, k]) => (
             <NavLink key={to} to={to} className={({ isActive }) => (isActive ? 'on' : '')} end={to === '/'}>

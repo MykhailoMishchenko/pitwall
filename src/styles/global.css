@@ -27,6 +27,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:14
 .lockchip .dot{width:7px;height:7px;border-radius:50%;background:var(--yellow);animation:pulse 1.6s infinite}
 @keyframes pulse{50%{opacity:.25}}
 .rail{position:fixed;top:52px;bottom:0;left:0;width:196px;padding:18px 0;border-right:1px solid var(--line);background:rgba(13,16,20,.6);overflow-y:auto}
+.rail .grpwrap{display:contents}
 .rail .grp{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;color:var(--faint);padding:14px 20px 6px}
 .rail a{display:flex;align-items:center;gap:10px;padding:8px 20px;color:var(--dim);text-decoration:none;font-size:13.5px;border-left:2px solid transparent}
 .rail a:hover{color:var(--text)}
