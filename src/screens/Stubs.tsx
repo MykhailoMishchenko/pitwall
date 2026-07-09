@@ -1,6 +1,5 @@
 // inputs {—}, does {экраны-заглушки фаз 1–2: структура по SPEC, наполнение по мере готовности движка}, returns {8 экранов}
-import { useModel, useNextRace } from '../lib/api'
-import { gpUa } from '../lib/teams'
+import { useModel } from '../lib/api'
 import { Lbl, Panel, Placeholder } from '../components/ui'
 
 function Screen({ no, title, children }: { no: string; title: string; children: React.ReactNode }) {
@@ -9,19 +8,6 @@ function Screen({ no, title, children }: { no: string; title: string; children: 
       <div className="shead"><span className="rno">{no} / {title}</span></div>
       {children}
     </section>
-  )
-}
-
-export function Weekend() {
-  const { data: next } = useNextRace()
-  return (
-    <Screen no="02" title="ГОНОЧНИЙ ВІКЕНД">
-      {next && <><h1>R{next.round} · {gpUa(next.country, next.raceName)}</h1><p className="sub">{next.circuit}</p></>}
-      <div className="grid g-2" style={{ marginTop: 18 }}>
-        <Placeholder title="ПРЕВʼЮ" text="Профіль траси (SC%, втрата на піті, обгони), форма, ціни, погода → чернетка піків v0. Зʼявиться після рутини превʼю (Вт–Ср)." chip="ЧЕКАЄ РУТИНИ" />
-        <Placeholder title="ПІКИ" text="Фінальний склад фентезі + відповіді Predict з таймстемпами. Після лока — read-only назавжди." chip="ДО ЛОКА" />
-      </div>
-    </Screen>
   )
 }
 

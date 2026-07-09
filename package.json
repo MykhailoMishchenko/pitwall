@@ -10,7 +10,7 @@
     "api": "tsx watch server/api.ts",
     "build": "tsc --noEmit && vite build",
     "typecheck": "tsc --noEmit",
-    "ingest": "tsx scripts/ingest-jolpica.ts && tsx scripts/ingest-fantasy.ts && tsx scripts/ingest-predict.ts",
+    "ingest": "tsx scripts/ingest-jolpica.ts && tsx scripts/ingest-fantasy.ts && tsx scripts/ingest-predict.ts && tsx scripts/ingest-analyses.ts",
     "ingest:jolpica": "tsx scripts/ingest-jolpica.ts",
     "ingest:fantasy": "tsx scripts/ingest-fantasy.ts"
   },
