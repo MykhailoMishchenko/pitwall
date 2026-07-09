@@ -4,7 +4,8 @@ import { useAnalysis, useAnalysisIndex, useNextRace } from '../lib/api'
 import { gpUa } from '../lib/teams'
 import { Markdown } from '../components/Markdown'
 import { Preview } from '../components/Preview'
-import { CountdownInline, Lbl, Panel, useNow } from '../components/ui'
+import { PicksView } from '../components/Picks'
+import { Lbl, Panel, useNow } from '../components/ui'
 
 export default function Weekend() {
   const { data: next } = useNextRace()
@@ -47,22 +48,7 @@ export default function Weekend() {
         )
       )}
 
-      {tab === 'picks' && (
-        <Panel>
-          <Lbl right={locked ? <span className="chip g">ЛОК · READ-ONLY</span> : <span className="chip y">ПРИХОВАНО ДО ЛОКА</span>}>ПІКИ R{round}</Lbl>
-          {locked ? (
-            <p className="sub">Пики зафіксовані на локі — див. фінальний склад і відповіді Predict нижче (буде заповнено після рутини фіналу).</p>
-          ) : (
-            <>
-              <p className="sub" style={{ fontSize: 13 }}>
-                Фінальний склад фентезі й відповіді Predict приховані до лока квали, щоб суперники в лізі не бачили наш хід.
-                Відкриються автоматично після дедлайну.
-              </p>
-              {next && <p className="num" style={{ marginTop: 12, color: 'var(--yellow)' }}>ВІДКРИЄТЬСЯ ЗА <CountdownInline targetUtc={next.lockUtc} /></p>}
-            </>
-          )}
-        </Panel>
-      )}
+      {tab === 'picks' && round != null && <PicksView round={round} next={next ?? undefined} locked={locked} />}
 
       {tab === 'debrief' && (
         preview ? <Panel><Markdown text={preview.markdown} /></Panel>

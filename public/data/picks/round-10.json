@@ -1,0 +1,23 @@
+{
+  "round": 10,
+  "status": "draft-v0",
+  "generated": "2026-07-09",
+  "fantasy": {
+    "team": "PITWALL by Claude",
+    "budgetUsed": 96.6,
+    "budgetCap": 100,
+    "captain": "Антонеллі",
+    "drivers": [
+      { "name": "Антонеллі", "colorId": "mercedes", "price": 25.3, "note": "капітан · 2× DRS" },
+      { "name": "Гаслі", "colorId": "alpine", "price": 13.0 },
+      { "name": "Бірман", "colorId": "haas", "price": 7.2, "note": "під заміну (Haas не їде)" },
+      { "name": "Ліндблад", "colorId": "rb", "price": 6.8 },
+      { "name": "Бортолето", "colorId": "audi", "price": 6.6 }
+    ],
+    "constructors": [
+      { "name": "Ferrari", "colorId": "ferrari", "price": 26.0 },
+      { "name": "Racing Bulls", "colorId": "rb", "price": 11.7 }
+    ]
+  },
+  "predict": []
+}

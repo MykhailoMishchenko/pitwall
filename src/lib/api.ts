@@ -89,6 +89,21 @@ export const useAnalysis = (file?: string) =>
     queryFn: () => get<any>(`/data/analyses/${file}.json`),
   })
 
+export type Picks = {
+  round: number; status: string; generated: string
+  fantasy: {
+    team: string; budgetUsed: number; budgetCap: number; captain: string
+    drivers: { name: string; colorId: string; price: number; note?: string }[]
+    constructors: { name: string; colorId: string; price: number }[]
+  }
+  predict: { question: string; answer: string; note?: string }[]
+}
+export const usePicks = (round?: number) =>
+  useQuery({
+    queryKey: ['picks', round], enabled: round != null, retry: false,
+    queryFn: () => get<Picks>(`/data/picks/round-${round}.json`),
+  })
+
 export type ModelLearning = { id: number; date: string; title: string; trigger: string; text: string; applied: string }
 export const useModel = () =>
   useQuery({ queryKey: ['model'], queryFn: () => get<{ promptVersion: string; learnings: ModelLearning[] }>('/data/model.json') })
