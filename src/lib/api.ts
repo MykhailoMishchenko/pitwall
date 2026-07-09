@@ -80,13 +80,13 @@ export type PredictQuestion = {
   Config: { Driver: number; Constructor: number; ChoiceLimit: number }
   Options: PredictOption[]
 }
-export type AnalysisIndexItem = { round: number; kind: 'preview' | 'debrief'; stage?: string; file: string }
+export type AnalysisIndexItem = { round: number; kind: 'preview' | 'debrief'; stage?: string; format: 'structured' | 'markdown'; file: string }
 export const useAnalysisIndex = () =>
   useQuery({ queryKey: ['analysis-index'], queryFn: () => get<{ items: AnalysisIndexItem[] }>('/data/analyses/index.json') })
 export const useAnalysis = (file?: string) =>
   useQuery({
     queryKey: ['analysis', file], enabled: !!file,
-    queryFn: () => get<{ meta: Record<string, string>; markdown: string }>(`/data/analyses/${file}.json`),
+    queryFn: () => get<any>(`/data/analyses/${file}.json`),
   })
 
 export type ModelLearning = { id: number; date: string; title: string; trigger: string; text: string; applied: string }

@@ -1,10 +1,11 @@
 {
- "fetchedAt": "2026-07-09T11:16:09.039Z",
+ "fetchedAt": "2026-07-09T11:21:41.905Z",
  "items": [
   {
    "round": 10,
    "kind": "preview",
    "stage": "preliminary",
+   "format": "structured",
    "file": "round-10-preview"
   }
  ]

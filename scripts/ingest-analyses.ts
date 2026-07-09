@@ -1,4 +1,4 @@
-// inputs {analyses/*.md}, does {парсит превью/разборы в public/data/analyses/*.json (meta+markdown)}, returns {лог}
+// inputs {analyses/*.json (структурные) + *.md (нарратив-разборы)}, does {в public/data/analyses/*.json + index}, returns {лог}
 import { mkdirSync, writeFileSync, readdirSync, readFileSync, existsSync } from 'node:fs'
 
 const SRC = 'analyses'
@@ -18,18 +18,29 @@ function parseFrontmatter(raw: string): { meta: Record<string, string>; body: st
 function main() {
   if (!existsSync(SRC)) { console.log('analyses: папки нет'); return }
   mkdirSync(OUT, { recursive: true })
-  const files = readdirSync(SRC).filter((f) => f.endsWith('.md'))
-  const index: { round: number; kind: string; stage?: string; file: string }[] = []
+  const files = readdirSync(SRC).filter((f) => f.endsWith('.json') || f.endsWith('.md'))
+  const index: { round: number; kind: string; stage?: string; format: 'structured' | 'markdown'; file: string }[] = []
+  const seen = new Set<string>()
   for (const f of files) {
-    const { meta, body } = parseFrontmatter(readFileSync(`${SRC}/${f}`, 'utf8'))
-    const round = Number(meta.round)
-    const kind = f.includes('debrief') ? 'debrief' : 'preview'
+    const raw = readFileSync(`${SRC}/${f}`, 'utf8')
+    let round: number, kind: string, stage: string | undefined, format: 'structured' | 'markdown', payload: unknown
+    if (f.endsWith('.json')) {
+      const data = JSON.parse(raw)
+      round = Number(data.meta?.round); kind = data.meta?.kind ?? (f.includes('debrief') ? 'debrief' : 'preview')
+      stage = data.meta?.stage; format = 'structured'; payload = data
+    } else {
+      const { meta, body } = parseFrontmatter(raw)
+      round = Number(meta.round); kind = f.includes('debrief') ? 'debrief' : 'preview'
+      stage = meta.stage; format = 'markdown'; payload = { meta, markdown: body }
+    }
     const key = `round-${round}-${kind}`
-    writeFileSync(`${OUT}/${key}.json`, JSON.stringify({ meta, markdown: body }, null, 1))
-    index.push({ round, kind, stage: meta.stage, file: key })
+    if (seen.has(key)) continue // структурный JSON приоритетнее одноимённого .md
+    seen.add(key)
+    writeFileSync(`${OUT}/${key}.json`, JSON.stringify(payload, null, 1))
+    index.push({ round, kind, stage, format, file: key })
   }
   writeFileSync(`${OUT}/index.json`, JSON.stringify({ fetchedAt: new Date().toISOString(), items: index }, null, 1))
-  console.log(`analyses: ${files.length} файлов → ${index.map((i) => i.file).join(', ')}`)
+  console.log(`analyses: ${index.length} → ${index.map((i) => `${i.file}(${i.format})`).join(', ')}`)
 }
 
 main()

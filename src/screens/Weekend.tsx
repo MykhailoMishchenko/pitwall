@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useAnalysis, useAnalysisIndex, useNextRace } from '../lib/api'
 import { gpUa } from '../lib/teams'
 import { Markdown } from '../components/Markdown'
+import { Preview } from '../components/Preview'
 import { CountdownInline, Lbl, Panel, useNow } from '../components/ui'
 
 export default function Weekend() {
@@ -35,12 +36,12 @@ export default function Weekend() {
 
       {tab === 'prev' && (
         preview ? (
-          <Panel>
+          <>
             {previewItem?.stage && previewItem.stage !== 'final' && (
-              <div style={{ marginBottom: 12 }}><span className="chip y">{previewItem.stage === 'preliminary' ? 'ПОПЕРЕДНЄ · ДО ПРАКТИК' : previewItem.stage.toUpperCase()}</span></div>
+              <div style={{ marginBottom: 14 }}><span className="chip y">{previewItem.stage === 'preliminary' ? 'ПОПЕРЕДНЄ · ДО ПРАКТИК' : previewItem.stage.toUpperCase()}</span></div>
             )}
-            <Markdown text={preview.markdown} />
-          </Panel>
+            {previewItem?.format === 'structured' ? <Preview data={preview} /> : <Panel><Markdown text={preview.markdown} /></Panel>}
+          </>
         ) : (
           <Panel><Lbl>ПРЕВʼЮ</Lbl><p className="sub">Аналіз зʼявиться після рутини превʼю (Вт–Ср). Профіль траси, форма, ціни, погода → чернетка піків.</p></Panel>
         )
