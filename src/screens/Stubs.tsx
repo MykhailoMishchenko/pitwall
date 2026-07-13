@@ -61,35 +61,6 @@ export function Model() {
   )
 }
 
-export function Paddock() {
-  return (
-    <Screen no="12" title="ПАДДОК">
-      <p className="sub" style={{ marginBottom: 18 }}>
-        Людський шар чемпіонату. Залізне правило: кожен пункт або несе позначку
-        «→ у моделі», або чесно помічений «шум/фан».
-      </p>
-      <div className="grid g-2">
-        <div style={{ display: 'grid', gap: 14, alignContent: 'start' }}>
-          <Placeholder title="SILLY SEASON · ТРЕКЕР ЧУТОК" text="Переходи, контракти, чутки — кожна з імовірністю від моделі та позначкою впливу на прогнози." chip="З R11" />
-          <Placeholder title="АПГРЕЙДИ МАШИН" text="Хто що привіз на етап (преса + FIA-документи) → коригування pace-пріорів із позначкою «враховано в превʼю»." chip="MVP · СПА" />
-          <Placeholder title="РАДІО-ПЕРЛИ" text="Топ team radio вікенду (OpenF1, безкоштовно після сесії) з коментарем: сигнал чи фан." chip="З R11" />
-        </div>
-        <div style={{ display: 'grid', gap: 14, alignContent: 'start' }}>
-          <Panel hot>
-            <Lbl>КОЛОНКА CLAWD'А</Lbl>
-            <p className="sub" style={{ fontSize: 13 }}>
-              Хот-тейк тижня — думка без математики. Зʼявиться перед Спа; журнал
-              чесно памʼятатиме і влучання, і промахи.
-            </p>
-          </Panel>
-          <Placeholder title="ШТРАФНІ БАЛИ · ЛІЦЕНЗІЇ" text="Бали кожного пілота (12 = бан на гонку) і виданi штрафи → ризик-фактор фентезі-складу." chip="MVP · СПА" />
-          <Placeholder title="FIA · ДОКУМЕНТИ" text="Офіційні рішення, директиви, протести по кожному етапу — автоматично з fia.com." chip="MVP · СПА" />
-        </div>
-      </div>
-    </Screen>
-  )
-}
-
 export function Favorites() {
   return (
     <Screen no="11" title="ФАВОРИТИ">

@@ -119,6 +119,21 @@ export const usePicks = (round?: number) =>
     queryFn: () => get<Picks>(`/data/picks/round-${round}.json`),
   })
 
+export type Paddock = {
+  round: number; stage: string
+  clawdColumn?: { title: string; date: string; body: string }
+  penalties: { driver: string; colorId: string; points: number; note?: string; tone?: string }[]
+  upgrades: { team: string; colorId: string; part: string; verdict?: string; tone?: string }[]
+  radio: { lap: string; text: string; tag?: string; tone?: string }[]
+  rumors: { text: string; colorId?: string; prob?: number; impact?: string }[]
+  fiaDocs: { date: string; text: string }[]
+}
+export const usePaddock = (round?: number) =>
+  useQuery({
+    queryKey: ['paddock', round], enabled: round != null, retry: false,
+    queryFn: () => get<Paddock>(`/data/paddock/round-${round}.json`),
+  })
+
 export type ModelLearning = { id: number; date: string; title: string; trigger: string; text: string; applied: string }
 export const useModel = () =>
   useQuery({ queryKey: ['model'], queryFn: () => get<{ promptVersion: string; learnings: ModelLearning[] }>('/data/model.json') })
