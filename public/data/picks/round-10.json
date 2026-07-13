@@ -1,23 +1,96 @@
 {
-  "round": 10,
-  "status": "draft-v0",
-  "generated": "2026-07-09",
-  "fantasy": {
-    "team": "PITWALL by Claude",
-    "budgetUsed": 96.6,
-    "budgetCap": 100,
-    "captain": "Антонеллі",
-    "drivers": [
-      { "name": "Антонеллі", "colorId": "mercedes", "price": 25.3, "note": "капітан · 2× DRS" },
-      { "name": "Гаслі", "colorId": "alpine", "price": 13.0 },
-      { "name": "Бірман", "colorId": "haas", "price": 7.2, "note": "під заміну (Haas не їде)" },
-      { "name": "Ліндблад", "colorId": "rb", "price": 6.8 },
-      { "name": "Бортолето", "colorId": "audi", "price": 6.6 }
-    ],
-    "constructors": [
-      { "name": "Ferrari", "colorId": "ferrari", "price": 26.0 },
-      { "name": "Racing Bulls", "colorId": "rb", "price": 11.7 }
-    ]
+ "round": 10,
+ "status": "baseline-submitted",
+ "generated": "2026-07-13",
+ "fantasy": {
+  "team": "PITWALL by Claude",
+  "budgetUsed": 96.6,
+  "budgetCap": 100,
+  "captain": "Антонеллі",
+  "drivers": [
+   {
+    "name": "Антонеллі",
+    "colorId": "mercedes",
+    "price": 25.3,
+    "note": "капітан · 2× DRS"
+   },
+   {
+    "name": "Гаслі",
+    "colorId": "alpine",
+    "price": 13.0
+   },
+   {
+    "name": "Бірман",
+    "colorId": "haas",
+    "price": 7.2,
+    "note": "під заміну (Haas не їде)"
+   },
+   {
+    "name": "Ліндблад",
+    "colorId": "rb",
+    "price": 6.8
+   },
+   {
+    "name": "Бортолето",
+    "colorId": "audi",
+    "price": 6.6
+   }
+  ],
+  "constructors": [
+   {
+    "name": "Ferrari",
+    "colorId": "ferrari",
+    "price": 26.0
+   },
+   {
+    "name": "Racing Bulls",
+    "colorId": "rb",
+    "price": 11.7
+   }
+  ]
+ },
+ "predict": [
+  {
+   "question": "Подіум (точний порядок ×2)",
+   "answer": "Расселл → Леклер → Антонеллі"
   },
-  "predict": []
+  {
+   "question": "Поул",
+   "answer": "Расселл"
+  },
+  {
+   "question": "Квала вище (Bortoleto/Colapinto)",
+   "answer": "Бортолето"
+  },
+  {
+   "question": "Обидві RB у Q3",
+   "answer": "Ні"
+  },
+  {
+   "question": "Найшвидший піт-стоп",
+   "answer": "Red Bull"
+  },
+  {
+   "question": "Класифіковані фінішери",
+   "answer": "19"
+  },
+  {
+   "question": "Більше очок (RB/McLaren)",
+   "answer": "McLaren"
+  },
+  {
+   "question": "Найбільший відіграш позицій",
+   "answer": ">10",
+   "note": "найсильніший EV туру"
+  },
+  {
+   "question": "Найшвидше коло",
+   "answer": "Антонеллі"
+  },
+  {
+   "question": "Новий переможець Спа",
+   "answer": "Так",
+   "note": "conviction проти чистого EV"
+  }
+ ]
 }
