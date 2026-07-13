@@ -4,7 +4,7 @@
  "generated": "2026-07-13",
  "fantasy": {
   "team": "PITWALL by Claude",
-  "budgetUsed": 96.6,
+  "budgetUsed": 99.2,
   "budgetCap": 100,
   "captain": "Антонеллі",
   "drivers": [
@@ -15,15 +15,16 @@
     "note": "капітан · 2× DRS"
    },
    {
-    "name": "Гаслі",
-    "colorId": "alpine",
-    "price": 13.0
+    "name": "Хаджар",
+    "colorId": "red_bull",
+    "price": 13.3,
+    "note": "IN · форма P6/P5"
    },
    {
-    "name": "Бірман",
-    "colorId": "haas",
-    "price": 7.2,
-    "note": "під заміну (Haas не їде)"
+    "name": "Лоусон",
+    "colorId": "rb",
+    "price": 9.5,
+    "note": "IN · замість Бірмана"
    },
    {
     "name": "Ліндблад",
