@@ -84,7 +84,7 @@ Antonelli. Это ЧЕРНОВИК v0 (доступен до лока квалы
   9/1/1/500/pvtleagueleaderboard` → Data.Value.memRank[] (rno=ранг за тур,
   teamName, userName, ovPoints=очки тура, overallPoints=сезон, trend) +
   userRank[0] (моя строка). Имена URL-encoded → decodeURIComponent.
-- **Ключевой соперник: Maks Podzigun (комментатор F1) rank 66, 1157 очков
+- **Ключевой соперник: Maks Podzigun — ЛИДЕР лиги за сезон, 1157 очков
   сезона** — наш ориентир. Мы: «Mishunchik» rank ~1572, 65 очков (дебют).
 
 **Fantasy лиги:** `GET /services/user/league/{fantasyGuid}/leaguelandingv1` →
