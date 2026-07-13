@@ -1,7 +1,9 @@
 // inputs {открытый фид вопросов Predict}, does {экран 06: вопросы раунда, имплайд-вероятность из Points, EV-панель}, returns {Predict}
 import { useMemo, useState } from 'react'
-import { usePredictIndex, usePredictRound, type PredictQuestion } from '../lib/api'
+import { usePredictI18n, usePredictIndex, usePredictRound, type PredictI18n, type PredictQuestion } from '../lib/api'
 import { Lbl, Panel, Placeholder } from '../components/ui'
+
+const norm = (s: string) => s.trim().replace(/\s+/g, ' ')
 
 // Points обратно пропорциональны вероятности → имплайд ∝ 1/Points, нормируем внутри вопроса
 function withImplied(q: PredictQuestion) {
@@ -12,18 +14,21 @@ function withImplied(q: PredictQuestion) {
     .sort((a, b) => b.implied - a.implied)
 }
 
-function Question({ q }: { q: PredictQuestion }) {
+function Question({ q, i18n }: { q: PredictQuestion; i18n?: PredictI18n }) {
   const opts = useMemo(() => withImplied(q), [q])
+  const textUa = i18n?.questions[norm(q.Text)] ?? q.Text
+  const subUa = q.SubText ? (i18n?.subtexts[norm(q.SubText)] ?? q.SubText) : ''
+  const optUa = (v: string) => i18n?.options[norm(v)] ?? v
   return (
     <Panel>
-      <Lbl right={<span className="chip n">{q.Config.ChoiceLimit > 1 ? `ВИБІР ${q.Config.ChoiceLimit}` : 'ОДИН ВИБІР'}</span>}>Q{q.No} · {q.Text.toUpperCase()}</Lbl>
-      {q.SubText && <p className="sub" style={{ fontSize: 12, marginBottom: 12 }}>{q.SubText}</p>}
+      <Lbl right={<span className="chip n">{q.Config.ChoiceLimit > 1 ? `ВИБІР ${q.Config.ChoiceLimit}` : 'ОДИН ВИБІР'}</span>}>Q{q.No} · {textUa.toUpperCase()}</Lbl>
+      {subUa && <p className="sub" style={{ fontSize: 12, marginBottom: 12 }}>{subUa}</p>}
       <div className="tw"><table>
         <thead><tr><th>ВАРІАНТ</th><th className="tr">ОЧКИ ГРИ</th><th className="tr">ІМПЛАЙД</th><th className="tr">P(МОДЕЛЬ)</th></tr></thead>
         <tbody>
           {opts.slice(0, 8).map((o) => (
             <tr key={o.Id}>
-              <td>{o.Value}</td>
+              <td>{optUa(o.Value)}</td>
               <td className="num tr">{o.Points}</td>
               <td className="num tr" style={{ color: 'var(--dim)' }}>{o.implied}%</td>
               <td className="num tr" style={{ color: 'var(--faint)' }}>—</td>
@@ -37,6 +42,7 @@ function Question({ q }: { q: PredictQuestion }) {
 
 export default function Predict() {
   const { data: idx } = usePredictIndex()
+  const { data: i18n } = usePredictI18n()
   const rounds = idx?.rounds ?? []
   const [sel, setSel] = useState<number | undefined>(undefined)
   const round = sel ?? rounds[0]
@@ -64,7 +70,7 @@ export default function Predict() {
       {!round && <Placeholder title="ПИТАННЯ ВІКЕНДУ" text="Гоночний раунд ще не відкрито на f1predict. Рутина превʼю поллить questions_10 і підхопить питання щойно вони зʼявляться." chip="ЧЕКАЄМО ВІДКРИТТЯ R10" />}
       {round && data && (
         <div className="grid" style={{ gridTemplateColumns: '1fr 1fr' }}>
-          {data.questions.map((q) => <Question key={q.Id} q={q} />)}
+          {data.questions.map((q) => <Question key={q.Id} q={q} i18n={i18n} />)}
         </div>
       )}
     </section>

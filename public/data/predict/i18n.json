@@ -1,0 +1,53 @@
+{
+  "_note": "Переклад питань Predict. Ключі — нормалізований англ. текст (trim + одиночні пробіли). Накопичувальний: імена пілотів і повторювані питання переюзуються, рутина до-перекладає лише нове. Фолбек — англ.",
+  "questions": {
+    "Predict the podium for the 2026 Belgian Grand Prix.": "Вгадай подіум Гран-прі Бельгії 2026.",
+    "Which driver takes pole position?": "Хто візьме поул-позицію?",
+    "Who qualifies highest for the Belgian Grand Prix?": "Хто кваліфікується вище на Гран-прі Бельгії?",
+    "Will Racing Bulls get both cars into Q3?": "Чи виведе Racing Bulls обидві машини в Q3?",
+    "Which team will set the fastest pitstop time of the race?": "Яка команда зробить найшвидший піт-стоп у гонці?",
+    "How many classified finishers?": "Скільки буде класифікованих фінішерів?",
+    "Which of these teams will score the most points?": "Яка з цих команд набере більше очок?",
+    "Most positions gained by a driver in the race?": "Хто відіграє найбільше позицій у гонці?",
+    "Who will set the fastest lap time of the race?": "Хто покаже найшвидше коло гонки?",
+    "Will we see a new Belgian Grand Prix winner?": "Чи побачимо нового переможця Гран-прі Бельгії?"
+  },
+  "subtexts": {
+    "Get the points when your picks finish in the top 3. Predict the exact position? You score double.": "Отримай очки, коли твої піки фінішують у топ-3. Вгадав точну позицію? Подвійні очки.",
+    "Ferrari have been turning up the pressure on Mercedes in recent races.": "Ferrari останніми гонками тисне на Mercedes.",
+    "The Audi driver had the edge in qualifying at Silverstone — can Alpine's man turn the tables at Spa?": "Пілот Audi був сильніший у кваліфікації в Сільверстоуні — чи відповість пілот Alpine у Спа?",
+    "Lawson and Lindblad made the Top 10 shootout in both qualifying sessions at Silverstone — can they do it again at Spa?": "Лоусон і Ліндблад пробилися в Top-10 обох кваліфікацій Сільверстоуна — чи повторять у Спа?",
+    "The longest race on the calendar is tough on tyres, so expect plenty of pit-stop action.": "Найдовша гонка календаря важка для шин — піт-стопів буде багато.",
+    "How many drivers will complete this marathon race?": "Скільки пілотів завершить цю марафонську гонку?",
+    "If the teams are tied then no points are awarded.": "Якщо команди зрівняються — очки не нараховуються.",
+    "This storied circuit is renowned for producing dramatic drives through the field.": "Ця легендарна траса відома драматичними проривами крізь пелотон.",
+    "Antonelli made it six Fastest Lap Awards at Silverstone — who can stop his streak this weekend?": "Антонеллі здобув шосте найшвидше коло в Сільверстоуні — хто зупинить його серію цього вікенду?",
+    "Both Ferrari drivers have won at Spa — neither Mercedes driver has.": "Обидва пілоти Ferrari вигравали у Спа — жоден із Mercedes ні."
+  },
+  "options": {
+    "George Russell": "Джордж Расселл",
+    "Kimi Antonelli": "Кімі Антонеллі",
+    "Lewis Hamilton": "Льюїс Гамільтон",
+    "Charles Leclerc": "Шарль Леклер",
+    "Max Verstappen": "Макс Ферстаппен",
+    "Lando Norris": "Ландо Норріс",
+    "Oscar Piastri": "Оскар Піастрі",
+    "Isack Hadjar": "Ісак Хаджар",
+    "Pierre Gasly": "Пʼєр Гаслі",
+    "Liam Lawson": "Ліам Лоусон",
+    "Arvid Lindblad": "Арвід Ліндблад",
+    "Oliver Bearman": "Олівер Бірман",
+    "Gabriel Bortoleto": "Габріель Бортолето",
+    "Franco Colapinto": "Франко Колапінто",
+    "Carlos Sainz": "Карлос Сайнс",
+    "Alexander Albon": "Александр Албон",
+    "Esteban Ocon": "Естебан Окон",
+    "Nico Hulkenberg": "Ніко Хюлькенберг",
+    "Valtteri Bottas": "Валттері Боттас",
+    "Sergio Perez": "Серхіо Перес",
+    "Lance Stroll": "Ленс Стролл",
+    "Fernando Alonso": "Фернандо Алонсо",
+    "Yes": "Так",
+    "No": "Ні"
+  }
+}

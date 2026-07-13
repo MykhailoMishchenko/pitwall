@@ -138,6 +138,10 @@ export type ModelLearning = { id: number; date: string; title: string; trigger: 
 export const useModel = () =>
   useQuery({ queryKey: ['model'], queryFn: () => get<{ promptVersion: string; learnings: ModelLearning[] }>('/data/model.json') })
 
+export type PredictI18n = { questions: Record<string, string>; subtexts: Record<string, string>; options: Record<string, string> }
+export const usePredictI18n = () =>
+  useQuery({ queryKey: ['predict-i18n'], queryFn: () => get<PredictI18n>('/data/predict/i18n.json'), staleTime: Infinity })
+
 export const usePredictIndex = () =>
   useQuery({ queryKey: ['predict-index'], queryFn: () => get<{ rounds: number[] }>('/data/predict/index.json') })
 export const usePredictRound = (round?: number) =>
