@@ -1,0 +1,972 @@
+{
+ "round": 10,
+ "fetchedAt": "2026-07-13T16:07:18.285Z",
+ "questions": [
+  {
+   "Id": 397,
+   "No": 1,
+   "Text": "Predict the podium for the 2026 Belgian Grand Prix.",
+   "SubText": "Get the points when your picks finish in the top 3. Predict the exact position? You score double.",
+   "OptionTemplateId": 1,
+   "Status": 2,
+   "Config": {
+    "IsMinValueExtended": 0,
+    "IsMaxValueExtended": 0,
+    "Driver": 3,
+    "Constructor": 0,
+    "ChoiceLimit": 3
+   },
+   "Options": [
+    {
+     "Id": 124,
+     "Value": "George Russell",
+     "Points": "5",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "83"
+    },
+    {
+     "Id": 11161,
+     "Value": "Kimi Antonelli",
+     "Points": "8",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "79"
+    },
+    {
+     "Id": 110,
+     "Value": "Lewis Hamilton",
+     "Points": "10",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "77"
+    },
+    {
+     "Id": 115,
+     "Value": "Charles Leclerc",
+     "Points": "12",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "74"
+    },
+    {
+     "Id": 131,
+     "Value": "Max Verstappen",
+     "Points": "14",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "71"
+    },
+    {
+     "Id": 117,
+     "Value": "Lando Norris",
+     "Points": "15",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "70"
+    },
+    {
+     "Id": 1982,
+     "Value": "Oscar Piastri",
+     "Points": "18",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "66"
+    },
+    {
+     "Id": 11032,
+     "Value": "Isack Hadjar",
+     "Points": "20",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "63"
+    },
+    {
+     "Id": 18,
+     "Value": "Pierre Gasly",
+     "Points": "30",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "50"
+    },
+    {
+     "Id": 11059,
+     "Value": "Franco Colapinto",
+     "Points": "35",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "43"
+    },
+    {
+     "Id": 114,
+     "Value": "Liam Lawson",
+     "Points": "35",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "43"
+    },
+    {
+     "Id": 11149,
+     "Value": "Arvid Lindblad",
+     "Points": "40",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "37"
+    },
+    {
+     "Id": 125,
+     "Value": "Carlos Sainz",
+     "Points": "40",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "37"
+    },
+    {
+     "Id": 11,
+     "Value": "Alexander Albon",
+     "Points": "40",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "37"
+    },
+    {
+     "Id": 11031,
+     "Value": "Oliver Bearman",
+     "Points": "45",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "30"
+    },
+    {
+     "Id": 118,
+     "Value": "Esteban Ocon",
+     "Points": "50",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "23"
+    },
+    {
+     "Id": 11051,
+     "Value": "Gabriel Bortoleto",
+     "Points": "50",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "23"
+    },
+    {
+     "Id": 111,
+     "Value": "Nico Hulkenberg",
+     "Points": "50",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "23"
+    },
+    {
+     "Id": 12,
+     "Value": "Fernando Alonso",
+     "Points": "55",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "17"
+    },
+    {
+     "Id": 129,
+     "Value": "Lance Stroll",
+     "Points": "55",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "17"
+    },
+    {
+     "Id": 121,
+     "Value": "Sergio Perez",
+     "Points": "60",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "10"
+    },
+    {
+     "Id": 13,
+     "Value": "Valtteri Bottas",
+     "Points": "60",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "10"
+    }
+   ],
+   "Answer": []
+  },
+  {
+   "Id": 398,
+   "No": 2,
+   "Text": "Which driver takes pole position?",
+   "SubText": "Ferrari have been turning up the pressure on Mercedes in recent races.",
+   "OptionTemplateId": 2,
+   "Status": 2,
+   "Config": {
+    "IsMinValueExtended": 0,
+    "IsMaxValueExtended": 0,
+    "Driver": 1,
+    "Constructor": 0,
+    "ChoiceLimit": 1
+   },
+   "Options": [
+    {
+     "Id": 124,
+     "Value": "George Russell",
+     "Points": "10",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "77"
+    },
+    {
+     "Id": 11161,
+     "Value": "Kimi Antonelli",
+     "Points": "12",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "75"
+    },
+    {
+     "Id": 110,
+     "Value": "Lewis Hamilton",
+     "Points": "15",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "70"
+    },
+    {
+     "Id": 115,
+     "Value": "Charles Leclerc",
+     "Points": "15",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "70"
+    },
+    {
+     "Id": 131,
+     "Value": "Max Verstappen",
+     "Points": "16",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "68"
+    },
+    {
+     "Id": 117,
+     "Value": "Lando Norris",
+     "Points": "18",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "66"
+    },
+    {
+     "Id": 1982,
+     "Value": "Oscar Piastri",
+     "Points": "20",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "63"
+    },
+    {
+     "Id": 11032,
+     "Value": "Isack Hadjar",
+     "Points": "30",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "50"
+    },
+    {
+     "Id": 18,
+     "Value": "Pierre Gasly",
+     "Points": "35",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "43"
+    },
+    {
+     "Id": 11059,
+     "Value": "Franco Colapinto",
+     "Points": "40",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "37"
+    },
+    {
+     "Id": 114,
+     "Value": "Liam Lawson",
+     "Points": "40",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "37"
+    },
+    {
+     "Id": 11149,
+     "Value": "Arvid Lindblad",
+     "Points": "40",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "37"
+    },
+    {
+     "Id": 125,
+     "Value": "Carlos Sainz",
+     "Points": "40",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "37"
+    },
+    {
+     "Id": 11,
+     "Value": "Alexander Albon",
+     "Points": "45",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "30"
+    },
+    {
+     "Id": 11031,
+     "Value": "Oliver Bearman",
+     "Points": "50",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "23"
+    },
+    {
+     "Id": 118,
+     "Value": "Esteban Ocon",
+     "Points": "50",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "23"
+    },
+    {
+     "Id": 11051,
+     "Value": "Gabriel Bortoleto",
+     "Points": "50",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "23"
+    },
+    {
+     "Id": 111,
+     "Value": "Nico Hulkenberg",
+     "Points": "55",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "17"
+    },
+    {
+     "Id": 12,
+     "Value": "Fernando Alonso",
+     "Points": "55",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "17"
+    },
+    {
+     "Id": 129,
+     "Value": "Lance Stroll",
+     "Points": "58",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "13"
+    },
+    {
+     "Id": 121,
+     "Value": "Sergio Perez",
+     "Points": "58",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "13"
+    },
+    {
+     "Id": 13,
+     "Value": "Valtteri Bottas",
+     "Points": "60",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "10"
+    }
+   ],
+   "Answer": []
+  },
+  {
+   "Id": 399,
+   "No": 3,
+   "Text": "Who qualifies highest for the Belgian Grand Prix?",
+   "SubText": "The Audi driver had the edge in qualifying at Silverstone — can Alpine's man turn the tables at Spa?",
+   "OptionTemplateId": 7,
+   "Status": 2,
+   "Config": {
+    "IsMinValueExtended": 0,
+    "IsMaxValueExtended": 0,
+    "ChoiceLimit": 1
+   },
+   "Options": [
+    {
+     "Id": 11051,
+     "Value": "Gabriel Bortoleto",
+     "Points": "10",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "0"
+    },
+    {
+     "Id": 11059,
+     "Value": "Franco Colapinto",
+     "Points": "15",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "0"
+    }
+   ],
+   "Answer": []
+  },
+  {
+   "Id": 400,
+   "No": 4,
+   "Text": "Will Racing Bulls get both cars into Q3?",
+   "SubText": "Lawson and Lindblad made the Top 10 shootout in both qualifying sessions at Silverstone — can they do it again at Spa?",
+   "OptionTemplateId": 8,
+   "Status": 2,
+   "Config": {
+    "IsMinValueExtended": 0,
+    "IsMaxValueExtended": 0,
+    "ChoiceLimit": 1
+   },
+   "Options": [
+    {
+     "Id": 1,
+     "Value": "Yes",
+     "Points": "10",
+     "Type": 3,
+     "Position": "0",
+     "Chance": "0"
+    },
+    {
+     "Id": 2,
+     "Value": "No",
+     "Points": "15",
+     "Type": 3,
+     "Position": "0",
+     "Chance": "0"
+    }
+   ],
+   "Answer": []
+  },
+  {
+   "Id": 401,
+   "No": 5,
+   "Text": "Which team will set the fastest pitstop time of the race?",
+   "SubText": "The longest race on the calendar is tough on tyres, so expect plenty of pit-stop action.",
+   "OptionTemplateId": 2,
+   "Status": 2,
+   "Config": {
+    "IsMinValueExtended": 0,
+    "IsMaxValueExtended": 0,
+    "Driver": 0,
+    "Constructor": 1,
+    "ChoiceLimit": 1
+   },
+   "Options": [
+    {
+     "Id": 28,
+     "Value": "Mercedes",
+     "Points": "10",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "74"
+    },
+    {
+     "Id": 25,
+     "Value": "Ferrari",
+     "Points": "12",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "71"
+    },
+    {
+     "Id": 2636,
+     "Value": "Racing Bulls",
+     "Points": "15",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "66"
+    },
+    {
+     "Id": 27,
+     "Value": "McLaren",
+     "Points": "20",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "58"
+    },
+    {
+     "Id": 29,
+     "Value": "Red Bull Racing",
+     "Points": "25",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "50"
+    },
+    {
+     "Id": 2640,
+     "Value": "Audi",
+     "Points": "28",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "45"
+    },
+    {
+     "Id": 23,
+     "Value": "Alpine",
+     "Points": "30",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "42"
+    },
+    {
+     "Id": 210,
+     "Value": "Williams",
+     "Points": "35",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "34"
+    },
+    {
+     "Id": 24,
+     "Value": "Aston Martin",
+     "Points": "40",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "26"
+    },
+    {
+     "Id": 2641,
+     "Value": "Cadillac",
+     "Points": "45",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "18"
+    },
+    {
+     "Id": 26,
+     "Value": "Haas F1 Team",
+     "Points": "50",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "10"
+    }
+   ],
+   "Answer": []
+  },
+  {
+   "Id": 402,
+   "No": 6,
+   "Text": "How many classified finishers?",
+   "SubText": "How many drivers will complete this marathon race?",
+   "OptionTemplateId": 6,
+   "Status": 2,
+   "Config": {
+    "MinValue": 15,
+    "MaxValue": 19,
+    "StepValue": 1,
+    "IsMinValueExtended": 1,
+    "IsMaxValueExtended": 1,
+    "ChoiceLimit": 1
+   },
+   "Options": [
+    {
+     "Id": 1,
+     "Value": "<15",
+     "Points": "30",
+     "Type": 3,
+     "Position": "0",
+     "Chance": "0"
+    },
+    {
+     "Id": 2,
+     "Value": "15",
+     "Points": "20",
+     "Type": 3,
+     "Position": "0",
+     "Chance": "0"
+    },
+    {
+     "Id": 3,
+     "Value": "16",
+     "Points": "15",
+     "Type": 3,
+     "Position": "0",
+     "Chance": "0"
+    },
+    {
+     "Id": 4,
+     "Value": "17",
+     "Points": "10",
+     "Type": 3,
+     "Position": "0",
+     "Chance": "0"
+    },
+    {
+     "Id": 5,
+     "Value": "18",
+     "Points": "15",
+     "Type": 3,
+     "Position": "0",
+     "Chance": "0"
+    },
+    {
+     "Id": 6,
+     "Value": "19",
+     "Points": "20",
+     "Type": 3,
+     "Position": "0",
+     "Chance": "0"
+    },
+    {
+     "Id": 7,
+     "Value": ">19",
+     "Points": "25",
+     "Type": 3,
+     "Position": "0",
+     "Chance": "0"
+    }
+   ],
+   "Answer": []
+  },
+  {
+   "Id": 403,
+   "No": 7,
+   "Text": "Which of these teams will score the most points?",
+   "SubText": "If the teams are tied then no points are awarded.\n",
+   "OptionTemplateId": 7,
+   "Status": 2,
+   "Config": {
+    "IsMinValueExtended": 0,
+    "IsMaxValueExtended": 0,
+    "ChoiceLimit": 1
+   },
+   "Options": [
+    {
+     "Id": 29,
+     "Value": "Red Bull Racing",
+     "Points": "10",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "0"
+    },
+    {
+     "Id": 27,
+     "Value": "McLaren",
+     "Points": "15",
+     "Type": 2,
+     "Position": "0",
+     "Chance": "0"
+    }
+   ],
+   "Answer": []
+  },
+  {
+   "Id": 404,
+   "No": 8,
+   "Text": "Most positions gained by a driver in the race?\n",
+   "SubText": "This storied circuit is renowned for producing dramatic drives through the field.",
+   "OptionTemplateId": 6,
+   "Status": 2,
+   "Config": {
+    "MinValue": 6,
+    "MaxValue": 10,
+    "StepValue": 1,
+    "IsMinValueExtended": 1,
+    "IsMaxValueExtended": 1,
+    "ChoiceLimit": 1
+   },
+   "Options": [
+    {
+     "Id": 1,
+     "Value": "< 6",
+     "Points": "20",
+     "Type": 3,
+     "Position": "0",
+     "Chance": ""
+    },
+    {
+     "Id": 2,
+     "Value": "6",
+     "Points": "15",
+     "Type": 3,
+     "Position": "0",
+     "Chance": ""
+    },
+    {
+     "Id": 3,
+     "Value": "7",
+     "Points": "10",
+     "Type": 3,
+     "Position": "0",
+     "Chance": ""
+    },
+    {
+     "Id": 4,
+     "Value": "8",
+     "Points": "15",
+     "Type": 3,
+     "Position": "0",
+     "Chance": ""
+    },
+    {
+     "Id": 5,
+     "Value": "9",
+     "Points": "20",
+     "Type": 3,
+     "Position": "0",
+     "Chance": ""
+    },
+    {
+     "Id": 6,
+     "Value": "10",
+     "Points": "25",
+     "Type": 3,
+     "Position": "0",
+     "Chance": ""
+    },
+    {
+     "Id": 7,
+     "Value": ">10",
+     "Points": "30",
+     "Type": 3,
+     "Position": "0",
+     "Chance": ""
+    }
+   ],
+   "Answer": []
+  },
+  {
+   "Id": 405,
+   "No": 9,
+   "Text": "Who will set the fastest lap time of the race?",
+   "SubText": "Antonelli made it six Fastest Lap Awards at Silverstone — who can stop his streak this weekend?",
+   "OptionTemplateId": 2,
+   "Status": 2,
+   "Config": {
+    "IsMinValueExtended": 0,
+    "IsMaxValueExtended": 0,
+    "Driver": 1,
+    "Constructor": 0,
+    "ChoiceLimit": 1
+   },
+   "Options": [
+    {
+     "Id": 11161,
+     "Value": "Kimi Antonelli",
+     "Points": "10",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "77"
+    },
+    {
+     "Id": 124,
+     "Value": "George Russell",
+     "Points": "12",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "74"
+    },
+    {
+     "Id": 110,
+     "Value": "Lewis Hamilton",
+     "Points": "12",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "74"
+    },
+    {
+     "Id": 115,
+     "Value": "Charles Leclerc",
+     "Points": "15",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "70"
+    },
+    {
+     "Id": 131,
+     "Value": "Max Verstappen",
+     "Points": "15",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "70"
+    },
+    {
+     "Id": 117,
+     "Value": "Lando Norris",
+     "Points": "18",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "66"
+    },
+    {
+     "Id": 1982,
+     "Value": "Oscar Piastri",
+     "Points": "20",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "63"
+    },
+    {
+     "Id": 11032,
+     "Value": "Isack Hadjar",
+     "Points": "30",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "50"
+    },
+    {
+     "Id": 18,
+     "Value": "Pierre Gasly",
+     "Points": "35",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "43"
+    },
+    {
+     "Id": 11059,
+     "Value": "Franco Colapinto",
+     "Points": "40",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "37"
+    },
+    {
+     "Id": 114,
+     "Value": "Liam Lawson",
+     "Points": "40",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "37"
+    },
+    {
+     "Id": 11149,
+     "Value": "Arvid Lindblad",
+     "Points": "40",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "37"
+    },
+    {
+     "Id": 125,
+     "Value": "Carlos Sainz",
+     "Points": "40",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "37"
+    },
+    {
+     "Id": 11,
+     "Value": "Alexander Albon",
+     "Points": "45",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "30"
+    },
+    {
+     "Id": 11031,
+     "Value": "Oliver Bearman",
+     "Points": "50",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "23"
+    },
+    {
+     "Id": 118,
+     "Value": "Esteban Ocon",
+     "Points": "50",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "23"
+    },
+    {
+     "Id": 11051,
+     "Value": "Gabriel Bortoleto",
+     "Points": "50",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "23"
+    },
+    {
+     "Id": 111,
+     "Value": "Nico Hulkenberg",
+     "Points": "55",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "17"
+    },
+    {
+     "Id": 12,
+     "Value": "Fernando Alonso",
+     "Points": "55",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "17"
+    },
+    {
+     "Id": 129,
+     "Value": "Lance Stroll",
+     "Points": "58",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "13"
+    },
+    {
+     "Id": 121,
+     "Value": "Sergio Perez",
+     "Points": "60",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "10"
+    },
+    {
+     "Id": 13,
+     "Value": "Valtteri Bottas",
+     "Points": "60",
+     "Type": 1,
+     "Position": "0",
+     "Chance": "10"
+    }
+   ],
+   "Answer": []
+  },
+  {
+   "Id": 406,
+   "No": 10,
+   "Text": "Will we see a new Belgian Grand Prix winner?",
+   "SubText": "Both Ferrari drivers have won at Spa — neither Mercedes driver has.",
+   "OptionTemplateId": 8,
+   "Status": 2,
+   "Config": {
+    "IsMinValueExtended": 0,
+    "IsMaxValueExtended": 0,
+    "ChoiceLimit": 1
+   },
+   "Options": [
+    {
+     "Id": 1,
+     "Value": "Yes",
+     "Points": "10",
+     "Type": 3,
+     "Position": "0",
+     "Chance": "0"
+    },
+    {
+     "Id": 2,
+     "Value": "No",
+     "Points": "15",
+     "Type": 3,
+     "Position": "0",
+     "Chance": "0"
+    }
+   ],
+   "Answer": []
+  }
+ ]
+}
