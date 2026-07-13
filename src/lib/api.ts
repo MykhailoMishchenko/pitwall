@@ -149,3 +149,15 @@ export const usePredictRound = (round?: number) =>
     queryKey: ['predict-round', round], enabled: round != null,
     queryFn: () => get<{ round: number; fetchedAt: string; questions: PredictQuestion[] }>(`/data/predict/round-${round}.json`),
   })
+
+export type PredictQAnalysis = { pickIds: number[]; probs: Record<string, number>; conviction: string; note: string }
+export type PredictAnalysis = {
+  round: number; generated: string; stage: string
+  boost: { recommendation: string; note: string }
+  questions: Record<string, PredictQAnalysis>
+}
+export const usePredictAnalysis = (round?: number) =>
+  useQuery({
+    queryKey: ['predict-analysis', round], enabled: round != null, retry: false,
+    queryFn: () => get<PredictAnalysis>(`/data/predict/analysis-${round}.json`),
+  })

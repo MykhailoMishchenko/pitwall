@@ -1,8 +1,8 @@
 // inputs {children/props}, does {переиспользуемые примитивы витрины}, returns {Panel, Lbl, Countdown, Placeholder}
 import { useEffect, useState, type ReactNode } from 'react'
 
-export function Panel({ hot, children, className = '' }: { hot?: boolean; children: ReactNode; className?: string }) {
-  return <div className={`panel ${hot ? 'hot' : ''} ${className}`}>{children}</div>
+export function Panel({ hot, children, className = '', style }: { hot?: boolean; children: ReactNode; className?: string; style?: React.CSSProperties }) {
+  return <div className={`panel ${hot ? 'hot' : ''} ${className}`} style={style}>{children}</div>
 }
 
 export function Lbl({ children, right }: { children: ReactNode; right?: ReactNode }) {
