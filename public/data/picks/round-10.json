@@ -1,7 +1,7 @@
 {
  "round": 10,
- "status": "baseline-submitted",
- "generated": "2026-07-13",
+ "status": "final-submitted",
+ "generated": "2026-07-18",
  "fantasy": {
   "team": "PITWALL by Claude",
   "budgetUsed": 99.2,
@@ -53,11 +53,13 @@
  "predict": [
   {
    "question": "Подіум (точний порядок ×2)",
-   "answer": "Расселл → Леклер → Антонеллі"
+   "answer": "Антонеллі → Расселл → Леклер",
+   "note": "фінальний порядок за практиками (Антонеллі топ FP2/FP3 + лонг-рани)"
   },
   {
    "question": "Поул",
-   "answer": "Расселл"
+   "answer": "Антонеллі",
+   "note": "свап у суботу за даними практик"
   },
   {
    "question": "Квала вище (Bortoleto/Colapinto)",
