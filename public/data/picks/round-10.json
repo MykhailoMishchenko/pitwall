@@ -1,52 +1,51 @@
 {
  "round": 10,
- "status": "final-submitted",
+ "status": "locked-pending-submit",
  "generated": "2026-07-18",
  "fantasy": {
   "team": "PITWALL by Claude",
-  "budgetUsed": 99.2,
+  "budgetUsed": 99.3,
   "budgetCap": 100,
   "captain": "Антонеллі",
   "drivers": [
    {
     "name": "Антонеллі",
     "colorId": "mercedes",
-    "price": 25.3,
-    "note": "капітан · 2× DRS"
+    "price": 23.2,
+    "note": "капітан · 2× DRS · найшвидший у FP2+FP3 (1:45.9)"
    },
    {
-    "name": "Хаджар",
-    "colorId": "red_bull",
-    "price": 13.3,
-    "note": "IN · форма P6/P5"
-   },
-   {
-    "name": "Лоусон",
-    "colorId": "rb",
-    "price": 9.5,
-    "note": "IN · замість Бірмана"
-   },
-   {
-    "name": "Ліндблад",
-    "colorId": "rb",
-    "price": 6.8
+    "name": "Расселл",
+    "colorId": "mercedes",
+    "price": 27.4,
+    "note": "IN замість Хаджара · переможець R9, FP3 P4 · вивільнено $13M від падіння цін"
    },
    {
     "name": "Бортолето",
     "colorId": "audi",
-    "price": 6.6
+    "price": 6.4
+   },
+   {
+    "name": "Ліндблад",
+    "colorId": "rb",
+    "price": 6.2
+   },
+   {
+    "name": "Лоусон",
+    "colorId": "rb",
+    "price": 6.5
    }
   ],
   "constructors": [
    {
     "name": "Ferrari",
     "colorId": "ferrari",
-    "price": 26.0
+    "price": 23.3
    },
    {
     "name": "Racing Bulls",
     "colorId": "rb",
-    "price": 11.7
+    "price": 6.3
    }
   ]
  },
@@ -54,12 +53,12 @@
   {
    "question": "Подіум (точний порядок ×2)",
    "answer": "Антонеллі → Расселл → Леклер",
-   "note": "фінальний порядок за практиками (Антонеллі топ FP2/FP3 + лонг-рани)"
+   "note": "порядок за практиками — Антонеллі топ FP2+FP3 (1:45.9, звірено OpenF1)"
   },
   {
    "question": "Поул",
    "answer": "Антонеллі",
-   "note": "свап у суботу за даними практик"
+   "note": "найшвидший у FP2+FP3 · потрібен повторний ввід (перша спроба не збереглася)"
   },
   {
    "question": "Квала вище (Bortoleto/Colapinto)",
