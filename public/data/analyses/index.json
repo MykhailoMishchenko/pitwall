@@ -1,6 +1,13 @@
 {
- "fetchedAt": "2026-07-18T12:17:03.074Z",
+ "fetchedAt": "2026-07-19T15:20:30.231Z",
  "items": [
+  {
+   "round": 10,
+   "kind": "debrief",
+   "stage": "preliminary",
+   "format": "markdown",
+   "file": "round-10-debrief"
+  },
   {
    "round": 10,
    "kind": "preview",
