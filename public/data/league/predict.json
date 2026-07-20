@@ -3,28 +3,27 @@
   "leagueName": "ЕФОДИН",
   "leagueType": "PRIVATE",
   "members": 1758,
-  "fetchedAt": "2026-07-09T12:05:00Z",
+  "fetchedAt": "2026-07-20T06:22:00Z",
   "sortNote": "рейтинг за весь сезон",
-  "me": { "rank": 1588, "team": "PITWALL by Claude", "account": "Mishunchik", "user": "Mykhailo Mishchenko", "season": 65, "isMe": true },
+  "me": { "rank": 1296, "team": "PITWALL by Claude", "account": "Mishunchik", "user": "Mykhailo Mishchenko", "season": 190, "isMe": true },
   "standings": [
-    { "rank": 1, "team": "Maks Podzigun", "user": "Maks Podzigun", "season": 1157, "trend": 2 },
-    { "rank": 2, "team": "Team Lawyer", "user": "Vladyslav Nesmiian", "season": 1072, "trend": 2 },
-    { "rank": 3, "team": "mykolapogodin", "user": "Mykola Pogodin", "season": 1040, "trend": 3 },
-    { "rank": 4, "team": "GREEN84", "user": "Dmytro Koshyk", "season": 1026, "trend": 2 },
-    { "rank": 5, "team": "Runlover", "user": "Oleh Yakymchuk", "season": 1022, "trend": 2 },
-    { "rank": 6, "team": "Yaroslav Bohak", "user": "YAROSLAV BOHAK", "season": 1020, "trend": 2 },
-    { "rank": 7, "team": "VanFes", "user": "Ivan Fesenko", "season": 1019, "trend": 3 },
-    { "rank": 8, "team": "Zefir007", "user": "Vadym Shramko", "season": 1018, "trend": 2 },
-    { "rank": 9, "team": "ourson", "user": "Eugene Bujo", "season": 1017, "trend": 2 },
-    { "rank": 10, "team": "VLADOZXD", "user": "Vladyslav Ozadovskyi", "season": 1014, "trend": 2 },
-    { "rank": 11, "team": "F1 Neophyte", "user": "Nazar Bilozor", "season": 1012, "trend": 3 },
-    { "rank": 12, "team": "Nastradamus", "user": "Standwith Ukraine", "season": 992, "trend": 2 },
-    { "rank": 13, "team": "Poonderx", "user": "Dmytro Derkach", "season": 984, "trend": 2 },
-    { "rank": 14, "team": "Nordant", "user": "Maksym Shkliarevskyi", "season": 979, "trend": 2 },
-    { "rank": 15, "team": "bober_69", "user": "Joseph Korin", "season": 976, "trend": 2 }
+    { "rank": 1, "team": "Maks Podzigun", "user": "Maks Podzigun", "season": 1304, "trend": 2 },
+    { "rank": 2, "team": "Yaroslav Bohak", "user": "YAROSLAV BOHAK", "season": 1188, "trend": 2 },
+    { "rank": 2, "team": "ourson", "user": "Eugene Bujo", "season": 1188, "trend": 2 },
+    { "rank": 4, "team": "VanFes", "user": "Ivan Fesenko", "season": 1180, "trend": 3 },
+    { "rank": 5, "team": "Team Lawyer", "user": "Vladyslav Nesmiian", "season": 1177, "trend": 2 },
+    { "rank": 5, "team": "mykolapogodin", "user": "Mykola Pogodin", "season": 1177, "trend": 3 },
+    { "rank": 7, "team": "F1 Neophyte", "user": "Nazar Bilozor", "season": 1171, "trend": 3 },
+    { "rank": 8, "team": "Runlover", "user": "Oleh Yakymchuk", "season": 1169, "trend": 2 },
+    { "rank": 9, "team": "GREEN84", "user": "Dmytro Koshyk", "season": 1163, "trend": 2 },
+    { "rank": 10, "team": "Nastradamus", "user": "Standwith Ukraine", "season": 1157, "trend": 2 },
+    { "rank": 11, "team": "Poonderx", "user": "Dmytro Derkach", "season": 1149, "trend": 2 },
+    { "rank": 12, "team": "ThePowerOfLemons", "user": "Daniil Drahanchuk", "season": 1145, "trend": 3 },
+    { "rank": 14, "team": "TOPGPT f1 team", "user": "Evgen Toppa", "season": 1142, "trend": 2 },
+    { "rank": 15, "team": "Vitaliy_Kradko", "user": "Vitaliy Kradko", "season": 1138, "trend": 3 }
   ],
   "rivals": [
-    { "rank": 1, "team": "Maks Podzigun", "user": "Maks Podzigun", "season": 1157, "trend": 2, "tag": "лідер ліги" },
-    { "rank": 60, "team": "Podz9man F1 Team", "user": "Nazarii Podzihun", "season": 874, "trend": 3 }
+    { "rank": 1, "team": "Maks Podzigun", "user": "Maks Podzigun", "season": 1304, "trend": 2, "tag": "лідер ліги" },
+    { "rank": 103, "team": "Podz9man F1 Team", "user": "Nazarii Podzihun", "season": 958, "trend": 3 }
   ]
 }

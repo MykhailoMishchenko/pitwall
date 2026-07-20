@@ -1,13 +1,13 @@
 {
- "fetchedAt": "2026-07-18T12:17:01.557Z",
+ "fetchedAt": "2026-07-20T06:38:27.535Z",
  "season": "2026",
- "round": "9",
+ "round": "10",
  "ConstructorStandings": [
   {
    "position": "1",
    "positionText": "1",
-   "points": "333",
-   "wins": "7",
+   "points": "358",
+   "wins": "8",
    "Constructor": {
     "constructorId": "mercedes",
     "url": "https://en.wikipedia.org/wiki/Mercedes-Benz_in_Formula_One",
@@ -18,7 +18,7 @@
   {
    "position": "2",
    "positionText": "2",
-   "points": "255",
+   "points": "285",
    "wins": "2",
    "Constructor": {
     "constructorId": "ferrari",
@@ -30,7 +30,7 @@
   {
    "position": "3",
    "positionText": "3",
-   "points": "179",
+   "points": "195",
    "wins": "0",
    "Constructor": {
     "constructorId": "mclaren",
@@ -42,7 +42,7 @@
   {
    "position": "4",
    "positionText": "4",
-   "points": "128",
+   "points": "151",
    "wins": "0",
    "Constructor": {
     "constructorId": "red_bull",
@@ -54,7 +54,7 @@
   {
    "position": "5",
    "positionText": "5",
-   "points": "60",
+   "points": "61",
    "wins": "0",
    "Constructor": {
     "constructorId": "alpine",
@@ -66,7 +66,7 @@
   {
    "position": "6",
    "positionText": "6",
-   "points": "59",
+   "points": "61",
    "wins": "0",
    "Constructor": {
     "constructorId": "rb",
@@ -102,7 +102,7 @@
   {
    "position": "9",
    "positionText": "9",
-   "points": "6",
+   "points": "10",
    "wins": "0",
    "Constructor": {
     "constructorId": "audi",
