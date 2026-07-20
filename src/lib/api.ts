@@ -21,18 +21,24 @@ export type NextRace = {
   round: number; raceName: string; circuit?: string; country?: string
   isSprint: boolean; lockUtc: string; raceUtc: string; total: number
 }
-// клиентский расчёт: следующий этап + момент лока пиков (спринт → спринт-квала, иначе квала)
+// момент лока пиков для конкретного этапа (спринт → спринт-квала, иначе квала)
+export function raceTiming(r: Race) {
+  const raceUtc = `${r.date}T${r.time}`
+  const q = r.SprintQualifying ?? r.Qualifying
+  const lockUtc = q ? `${q.date}T${q.time}` : raceUtc
+  return { raceUtc, lockUtc, isSprint: Boolean(r.Sprint) }
+}
+
+// клиентский расчёт: следующий этап + момент лока пиков
 export function computeNextRace(races: Race[]): NextRace | null {
   const now = Date.now()
   for (const r of races) {
-    const raceUtc = `${r.date}T${r.time}`
+    const { raceUtc, lockUtc, isSprint } = raceTiming(r)
     if (new Date(raceUtc).getTime() + 3 * 3600e3 <= now) continue
-    const q = r.SprintQualifying ?? r.Qualifying
-    const lockUtc = q ? `${q.date}T${q.time}` : raceUtc
     return {
       round: Number(r.round), raceName: r.raceName,
       circuit: r.Circuit?.circuitName, country: r.Circuit?.Location?.country,
-      isSprint: Boolean(r.Sprint), lockUtc, raceUtc, total: races.length,
+      isSprint, lockUtc, raceUtc, total: races.length,
     }
   }
   return null
