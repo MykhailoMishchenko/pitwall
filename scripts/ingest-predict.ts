@@ -3,7 +3,7 @@ import { mkdirSync, writeFileSync } from 'node:fs'
 
 const OUT = 'public/data/predict'
 // 25 = сезонный бонус-раунд (всегда доступен); гоночные раунды открываются перед этапом
-const ROUNDS = [10, 25]
+const ROUNDS = [10, 11, 25]
 
 async function pull(round: number): Promise<any | null> {
   const url = `https://f1predict.formula1.com/feeds/questions/questions_${round}_en.json?buster=${Date.now()}`

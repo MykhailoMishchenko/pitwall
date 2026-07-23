@@ -10,7 +10,13 @@
     "Which of these teams will score the most points?": "Яка з цих команд набере більше очок?",
     "Most positions gained by a driver in the race?": "Хто відіграє найбільше позицій у гонці?",
     "Who will set the fastest lap time of the race?": "Хто покаже найшвидше коло гонки?",
-    "Will we see a new Belgian Grand Prix winner?": "Чи побачимо нового переможця Гран-прі Бельгії?"
+    "Will we see a new Belgian Grand Prix winner?": "Чи побачимо нового переможця Гран-прі Бельгії?",
+    "Predict the podium for the 2026 Hungarian Grand Prix.": "Вгадай подіум Гран-прі Угорщини 2026.",
+    "Will Aston Martin get both cars into Q2?": "Чи виведе Aston Martin обидві машини в Q2?",
+    "Who qualifies highest for the Hungarian Grand Prix?": "Хто кваліфікується вище на Гран-прі Угорщини?",
+    "Will the Safety Car or VSC be required during the Grand Prix?": "Чи знадобиться Safety Car або VSC під час гонки?",
+    "Where does Lewis Hamilton finish?": "Де фінішує Льюїс Гамільтон?",
+    "Will we see a new Hungarian Grand Prix winner?": "Чи побачимо нового переможця Гран-прі Угорщини?"
   },
   "subtexts": {
     "Get the points when your picks finish in the top 3. Predict the exact position? You score double.": "Отримай очки, коли твої піки фінішують у топ-3. Вгадав точну позицію? Подвійні очки.",
@@ -22,7 +28,15 @@
     "If the teams are tied then no points are awarded.": "Якщо команди зрівняються — очки не нараховуються.",
     "This storied circuit is renowned for producing dramatic drives through the field.": "Ця легендарна траса відома драматичними проривами крізь пелотон.",
     "Antonelli made it six Fastest Lap Awards at Silverstone — who can stop his streak this weekend?": "Антонеллі здобув шосте найшвидше коло в Сільверстоуні — хто зупинить його серію цього вікенду?",
-    "Both Ferrari drivers have won at Spa — neither Mercedes driver has.": "Обидва пілоти Ferrari вигравали у Спа — жоден із Mercedes ні."
+    "Both Ferrari drivers have won at Spa — neither Mercedes driver has.": "Обидва пілоти Ferrari вигравали у Спа — жоден із Mercedes ні.",
+    "Who'll be the fastest driver in qualifying?": "Хто буде найшвидшим у кваліфікації?",
+    "The much-anticipated upgrade finally arrives — how will it affect the green machines?": "Довгоочікуваний апгрейд нарешті прибув — як він вплине на «зелені машини»?",
+    "How much have Aston Martin closed the gap to Cadillac?": "Наскільки Aston Martin скоротили відставання від Cadillac?",
+    "Ferrari secured their third Fastest Pit Stop Award of the season at Spa.": "Ferrari здобули третю в сезоні нагороду за найшвидший піт-стоп у Спа.",
+    "Recent Grands Prix here have run without a Safety Car — is that streak about to end?": "Останні Гран-прі тут обходились без Safety Car — чи закінчиться ця серія?",
+    "Hamilton has won the Hungarian GP eight times — can he do it again?": "Гамільтон вигравав Гран-прі Угорщини вісім разів — чи зможе повторити?",
+    "Lando Norris claimed his second Fastest Lap Award of the season at Spa — can he make it three in Hungary?": "Норріс здобув друге в сезоні найшвидше коло у Спа — чи зробить третє в Угорщині?",
+    "The Hungaroring has a history of producing first-time winners.": "Хунгароринг має історію нових переможців."
   },
   "options": {
     "George Russell": "Джордж Расселл",
@@ -48,6 +62,10 @@
     "Lance Stroll": "Ленс Стролл",
     "Fernando Alonso": "Фернандо Алонсо",
     "Yes": "Так",
-    "No": "Ні"
+    "No": "Ні",
+    "Podium": "Подіум",
+    "4th - 10th": "4-та–10-та позиція",
+    "11th - 22nd": "11-та–22-га позиція",
+    "Not Classified": "Не класифікований"
   }
 }
